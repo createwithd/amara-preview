@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Black Friday Amara Mozaïek Set</title>
+<meta name="description" content="Collier en oorbellen met echte amethist in 925 sterling zilver. Nu 25% korting, gratis geschenkdoos, 60 dagen ruilen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+/* Amara: lichte webshop-PDP in de lijn van Losse-T, palet lila/pruim/zilver. data-mode="bf" = Black Friday (donker). */
+:root{
+  color-scheme:light;
+  --bg:#fbf8f5; --paper:#ffffff; --cream:#f4efe9; --lila-soft:#f3edf7; --lila:#b99bd8; --plum:#5a2d6e; --plum-deep:#3d1a4c;
+  --ink:#2a2230; --text:#4e4755; --muted:#7c7483; --line:#e8e0ea; --silver:#a9abb4; --gold:#d4a74a; --ok:#3f7d5a;
+  --deal:#5a2d6e; --deal-ink:#fff; --btn:#5a2d6e; --btn-h:#3d1a4c; --btn-ink:#fff;
+  --ff:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif; --fh:"Cormorant Garamond",Georgia,serif;
+  --r:14px;
+}
+[data-mode="bf"]{
+  color-scheme:dark;
+  --bg:#110b15; --paper:#1b1220; --cream:#21172a; --lila-soft:#2a1d33; --lila:#c8a2ef; --plum:#c8a2ef; --plum-deep:#e3ccfa;
+  --ink:#ffffff; --text:#d9d0e0; --muted:#a59cb0; --line:#33263d; --deal:#000; --deal-ink:#fff; --btn:#b57be0; --btn-h:#9d5fd0; --btn-ink:#140c19;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--ff);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+h1,h2,h3{color:var(--ink);line-height:1.15;margin:0;text-wrap:balance}
+h1,h2{font-family:var(--fh);font-weight:600;letter-spacing:-.005em}
+h1{font-size:clamp(32px,5vw,44px)}
+h2{font-size:clamp(30px,4.6vw,42px)}
+h3{font-size:18px;font-weight:600}
+p{margin:0}
+a{color:var(--plum)}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--lila);outline-offset:2px;border-radius:6px}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1160px;margin:0 auto}
+.narrow{max-width:760px;margin:0 auto}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);font-weight:600;margin-bottom:8px}
+.lead{font-size:17px;max-width:62ch}
+.muted{color:var(--muted)}
+
+/* demo + header */
+.preview{background:#1c1222;color:#d8c9e6;font-size:12px;text-align:center;padding:6px 16px}
+.top{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar1{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;height:70px}
+.h-left,.h-right{display:flex;align-items:center;gap:8px;min-width:0}
+.h-right{justify-content:flex-end}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-family:var(--fh);font-size:30px;font-weight:700;letter-spacing:.22em}
+.logo svg{color:var(--lila)}
+.iconbtn{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:0;background:none;color:var(--ink)}
+.search{display:none;align-items:center;gap:10px;width:min(100%,300px);height:40px;border:1px solid var(--line);border-radius:999px;background:var(--paper);padding:0 14px;color:var(--muted)}
+.search input{border:0;outline:0;font:inherit;font-size:14px;width:100%;background:none;color:var(--ink)}
+.cartbtn{position:relative}
+.cartbtn .n{position:absolute;top:3px;right:1px;background:var(--plum);color:var(--paper);border-radius:999px;font-size:11px;min-width:18px;height:18px;display:grid;place-items:center;padding:0 5px;font-weight:600}
+[data-mode="bf"] .cartbtn .n{color:#140c19}
+.menu{display:none;border-top:1px solid var(--line)}
+.menu ul{list-style:none;margin:0 auto;padding:0;display:flex;justify-content:center;flex-wrap:nowrap}
+.menu a{display:block;padding:11px 14px;font-size:14px;color:var(--text);text-decoration:none;white-space:nowrap}
+.menu a:hover,.menu a[aria-current]{color:var(--plum)}
+.menu a.sale{color:#b0306a;font-weight:600}
+@media(min-width:1000px){.menu{display:block}#menuBtn{display:none}.search{display:flex}}
+.mnav{position:fixed;inset:0;z-index:70;background:rgba(20,10,25,.45);display:none}
+.mnav.open{display:block}
+.mnav .panel{position:absolute;inset:0 auto 0 0;width:min(86vw,330px);background:var(--paper);padding:20px 16px;display:flex;flex-direction:column;overflow:auto}
+.mnav .panel a{padding:12px 8px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:500}
+
+/* dealbalk = cadeauladder */
+.deal{background:var(--deal);color:var(--deal-ink);padding-block:10px 14px}
+.dealrow{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:6px 24px}
+.dtext{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;white-space:nowrap}
+.dbar{position:relative;height:8px;border-radius:99px;background:rgba(255,255,255,.25);margin:0 40px 28px 0}
+.dbar i{position:absolute;inset:0;border-radius:99px;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .45s ease-out}
+[data-mode="bf"] .dbar i{background:linear-gradient(90deg,#b57be0,#f0c8ff)}
+.dbar em{position:absolute;top:-3px;transform:translateX(-50%);font-style:normal;font-size:11px;line-height:1.15;white-space:nowrap;text-align:center;color:rgba(255,255,255,.8)}
+.dbar em::before{content:"";display:block;width:14px;height:14px;margin:0 auto 4px;border-radius:50%;background:var(--deal);border:2px solid rgba(255,255,255,.7)}
+.dbar em b{display:block;color:#fff;font-size:11.5px}
+.dbar em.done::before{background:#fff;border-color:#fff}
+.dbar em:last-child{transform:translateX(-85%)}
+.bfclock{display:none;font-variant-numeric:tabular-nums;background:#b57be0;color:#140c19;border-radius:6px;padding:1px 8px;font-weight:700}
+[data-mode="bf"] .bfclock{display:inline-block}
+@media(max-width:760px){.deal{padding-block:6px}.dealrow{grid-template-columns:1fr;gap:5px}.dtext{justify-content:center;font-size:12.5px;white-space:normal;text-align:center}.dbar{height:3px;margin:0}.dbar em{display:none}}
+.crumbs{font-size:13px;color:var(--muted);padding-top:14px}
+.crumbs a{color:var(--muted);text-decoration:none}
+
+/* hero */
+.hero{display:grid;gap:22px;padding-block:12px 8px}
+@media(min-width:900px){.hero{grid-template-columns:1.08fr 1fr;gap:44px;padding-block:18px 16px;align-items:start}}
+.gallery{display:flex;flex-direction:column;gap:10px;min-width:0}
+.stage{position:relative;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--cream)}
+.stage img,.stage video{width:100%;height:100%;object-fit:cover}
+.thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.thumbs button{position:relative;aspect-ratio:1;border-radius:9px;overflow:hidden;border:2px solid transparent;padding:0;background:var(--cream)}
+.thumbs button[aria-current="true"]{border-color:var(--plum)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.thumbs .play{position:absolute;inset:auto 4px 4px auto;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center}
+@media(max-width:560px){.thumbs{grid-template-columns:repeat(4,1fr)}}
+.pin{position:absolute;transform:translate(-50%,-50%);background:rgba(255,255,255,.94);color:#2a2230;border-radius:999px;font-size:12.5px;font-weight:600;padding:5px 11px 5px 8px;display:flex;align-items:center;gap:6px;box-shadow:0 4px 14px rgba(40,10,50,.18);white-space:nowrap}
+.pin::before{content:"";width:8px;height:8px;border-radius:50%;background:#5a2d6e;box-shadow:0 0 0 3px rgba(185,155,216,.55)}
+.pin.x::before{background:#b8333d;box-shadow:0 0 0 3px rgba(184,51,61,.25)}
+.pin.v::before{background:#3f7d5a;box-shadow:0 0 0 3px rgba(63,125,90,.25)}
+@media(max-width:560px){.pin{font-size:10.5px;padding:3px 8px 3px 6px}}
+.stage .tag{position:absolute;left:12px;top:12px;background:var(--plum);color:var(--paper);font-size:12px;font-weight:600;border-radius:999px;padding:4px 11px}
+[data-mode="bf"] .stage .tag{background:#000;color:#fff;border:1px solid #b57be0}
+
+.buy{display:flex;flex-direction:column;gap:14px;min-width:0;scroll-margin-top:100px}
+.badge{align-self:flex-start;background:var(--lila-soft);color:var(--plum);font-size:12.5px;font-weight:600;border-radius:999px;padding:4px 12px}
+.sub{font-size:16px}
+.rating{display:flex;align-items:center;gap:8px;font-size:14px;flex-wrap:wrap}
+.stars{color:var(--gold);letter-spacing:1px;font-size:16px}
+.rating a{color:var(--text)}
+.pricebox{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price{font-size:32px;font-weight:700;color:var(--ink)}
+.was{font-size:18px;color:var(--muted);text-decoration:line-through}
+.save{background:#b0306a;color:#fff;font-size:13px;font-weight:600;border-radius:6px;padding:2px 8px}
+.klarna{font-size:13.5px;color:var(--muted);margin-top:-8px}
+.opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.opt{position:relative;border:1.5px solid var(--line);background:var(--paper);border-radius:12px;padding:12px 8px 10px;text-align:center;line-height:1.3}
+.opt b{display:block;font-size:14px;color:var(--ink)}
+.opt span{display:block;font-size:13px;color:var(--muted);margin-top:3px}
+.opt[aria-pressed="true"]{border-color:var(--plum);background:var(--lila-soft)}
+.opt .fav{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--plum);color:var(--paper);font-size:10.5px;font-weight:600;border-radius:999px;padding:1px 9px;white-space:nowrap}
+.incl{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:14px 16px}
+.incl h3{font-size:14.5px;margin-bottom:8px}
+.incl ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14px}
+.incl li{display:flex;gap:9px;align-items:flex-start}
+.incl li svg{flex:none;margin-top:3px;color:var(--ok)}
+.incl li s{color:var(--muted)}
+.incl li em{font-style:normal;color:var(--ok);font-weight:600}
+.incl .tot{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:14px;display:flex;justify-content:space-between;gap:10px}
+.addons{display:grid;gap:8px}
+.addons h3{font-size:14.5px}
+.addon{display:grid;grid-template-columns:auto 48px 1fr auto;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:8px 12px;background:var(--paper);font-size:14px;cursor:pointer}
+.addon input{width:18px;height:18px;accent-color:var(--plum)}
+.addon img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.addon small{display:block;color:var(--muted);font-size:12.5px;line-height:1.3}
+.addon .p{font-weight:600;color:var(--ink);white-space:nowrap}
+.addon .p s{font-weight:400;color:var(--muted);font-size:12.5px;margin-right:4px}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;border:0;border-radius:12px;background:var(--btn);color:var(--btn-ink);font-size:17px;font-weight:600;transition:background .2s}
+.cta:hover{background:var(--btn-h)}
+.cta.ghost{background:none;border:1.5px solid var(--plum);color:var(--plum)}
+.ladderhint{font-size:13.5px;text-align:center;color:var(--plum);font-weight:500;margin-top:-6px}
+.ship{display:flex;gap:10px;align-items:center;font-size:14px;background:var(--lila-soft);border-radius:10px;padding:10px 12px}
+.ship b{color:var(--ink)}
+.duo{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;border:1.5px dashed var(--lila);border-radius:14px;padding:12px;background:var(--paper)}
+.duo img{width:96px;height:96px;object-fit:cover;border-radius:10px}
+.duo h3{font-size:15.5px}
+.duo p{font-size:13.5px}
+.duo .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:6px;flex-wrap:wrap}
+.duo .pr{font-weight:700;color:var(--ink)}
+.duo .pr s{font-weight:400;color:var(--muted);margin-left:4px;font-size:13px}
+.smallbtn{border:0;background:var(--plum);color:var(--paper);border-radius:9px;padding:8px 14px;font-size:13.5px;font-weight:600}
+[data-mode="bf"] .smallbtn{color:#140c19}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:12px;text-align:center;color:var(--muted)}
+.trust div{display:flex;flex-direction:column;align-items:center;gap:4px}
+.trust svg{color:var(--plum)}
+.stock{display:flex;align-items:center;gap:8px;font-size:13.5px;color:#b0306a;font-weight:500}
+.stock i{width:8px;height:8px;border-radius:50%;background:#b0306a;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.stockbar{height:5px;border-radius:9px;background:var(--line);overflow:hidden;margin-top:-8px}
+.stockbar i{display:block;height:100%;width:24%;background:#b0306a}
+
+/* nav-chips */
+.chips{position:sticky;top:70px;z-index:30;background:var(--bg);border-block:1px solid var(--line);margin-top:22px}
+.chips ul{list-style:none;margin:0;padding:10px 0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.chips ul::-webkit-scrollbar{display:none}
+.chips a{display:block;white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13.5px;text-decoration:none;color:var(--text);background:var(--paper)}
+.chips a:hover{border-color:var(--plum);color:var(--plum)}
+@media(min-width:1000px){.chips{top:113px}}
+
+/* secties */
+.sec{padding-block:64px;scroll-margin-top:130px}
+.sec.alt{background:var(--paper)}
+.sec .head{margin-bottom:28px}
+.sec .head p{margin-top:12px}
+.split{display:grid;gap:26px;align-items:center}
+@media(min-width:880px){.split{grid-template-columns:1fr 1fr;gap:52px}.split.rev>:first-child{order:2}}
+.media{position:relative;border-radius:var(--r);overflow:hidden;background:var(--cream)}
+.media img,.media video{width:100%;height:100%;object-fit:cover}
+.r45{aspect-ratio:4/5}.r11{aspect-ratio:1}
+.feats{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:14px}
+.feats li{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start}
+.feats .ic{width:40px;height:40px;border-radius:12px;background:var(--lila-soft);color:var(--plum);display:grid;place-items:center}
+.feats b{display:block;color:var(--ink)}
+.feats span{font-size:14.5px}
+.quote{margin-top:22px;padding:0;font-family:var(--fh);font-size:21px;line-height:1.35;color:var(--ink)}
+.quote::before{content:"\201C";display:block;font-size:44px;line-height:.6;color:var(--lila);margin-bottom:4px}
+.quote small{display:block;font-family:var(--ff);font-size:13px;color:var(--muted);margin-top:6px}
+.duo2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.checks{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li svg{flex:none;margin-top:4px;color:var(--ok)}
+.checks b{color:var(--ink)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.sec.alt .card{background:var(--bg)}
+.ppw{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;text-align:center}
+.ppw div{background:var(--lila-soft);border-radius:12px;padding:12px 6px}
+.ppw b{display:block;font-family:var(--fh);font-size:28px;color:var(--plum);line-height:1.1}
+.ppw span{font-size:12.5px}
+
+/* vergelijk */
+.vs{display:grid;gap:26px}
+@media(min-width:900px){.vs{grid-template-columns:1.25fr 1fr;align-items:start}}
+table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:14.5px}
+.cmp th,.cmp td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tr:last-child td{border-bottom:0}
+.cmp thead th{background:var(--cream);font-size:13px;color:var(--ink)}
+.cmp thead th.us{background:var(--plum);color:var(--paper)}
+.cmp td:first-child{font-weight:600;color:var(--ink);width:24%}
+.cmp td.us{background:var(--lila-soft);color:var(--ink);font-weight:500}
+.cmp .no{color:#b8333d;font-weight:700;margin-right:4px}
+.cmp .yes{color:var(--ok);font-weight:700;margin-right:4px}
+@media(max-width:560px){.cmp{font-size:13px}.cmp th,.cmp td{padding:10px 8px}}
+.wist{margin-top:16px;background:var(--lila-soft);border-radius:12px;padding:14px 16px;font-size:14.5px}
+.wist b{color:var(--plum)}
+
+/* specs */
+.specs{width:100%;border-collapse:collapse;font-size:15px}
+.specs td{padding:10px 0;border-bottom:1px solid var(--line)}
+.specs td:first-child{color:var(--muted);width:45%}
+.specs td:last-child{color:var(--ink);font-weight:500}
+
+/* reviews */
+.revtop{display:grid;gap:24px;align-items:center;margin-bottom:28px}
+@media(min-width:800px){.revtop{grid-template-columns:auto 1fr}}
+.big{display:flex;align-items:center;gap:16px}
+.big b{font-family:var(--fh);font-size:68px;line-height:1;color:var(--ink)}
+.big .stars{font-size:22px}
+.dist{display:grid;gap:6px;max-width:420px;font-size:13px}
+.dist div{display:grid;grid-template-columns:28px 1fr 38px;align-items:center;gap:8px}
+.dist i{display:block;height:8px;border-radius:9px;background:var(--line);overflow:hidden}
+.dist i span{display:block;height:100%;background:var(--gold)}
+.revs{display:grid;gap:14px}
+@media(min-width:700px){.revs{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.revs{grid-template-columns:repeat(3,1fr)}}
+.rev{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:8px}
+.sec.alt .rev{background:var(--bg)}
+.rev h3{font-size:15.5px}
+.rev p{font-size:14.5px}
+.rev footer{font-size:12.5px;color:var(--muted);margin-top:auto}
+.rev .ver{color:var(--ok);font-weight:600}
+.demo-note{font-size:12px;color:var(--muted);margin-top:14px}
+
+/* andere stenen */
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:900px){.grid4{grid-template-columns:repeat(4,1fr);gap:18px}}
+.prod{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.sec.alt .prod{background:var(--bg)}
+.prod img{aspect-ratio:1;object-fit:cover;width:100%}
+.prod .b{padding:12px;display:flex;flex-direction:column;gap:4px;flex:1}
+.prod h3{font-size:14.5px}
+.prod .pp{font-size:14px;color:var(--ink);font-weight:600}
+.prod .pp s{color:var(--muted);font-weight:400;margin-left:4px;font-size:12.5px}
+.prod .add{margin-top:auto;align-self:flex-start;border:1px solid var(--plum);color:var(--plum);background:none;border-radius:9px;padding:6px 12px;font-size:13px;font-weight:600}
+.subh{margin:36px 0 14px;font-size:20px}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:14px 0;font-weight:600;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:var(--plum)}
+.faq details[open] summary::after{content:"–"}
+.faq p{padding:0 0 16px;font-size:15px}
+
+/* slot */
+.final{background:var(--plum-deep);color:#efe6f5}
+[data-mode="bf"] .final{background:#000}
+.final h2{color:#fff}
+.final .split{align-items:center}
+.final .cta{background:#fff;color:#3d1a4c}
+.final .cta.ghost{background:none;border-color:#fff;color:#fff}
+.final ul{margin:16px 0 22px;padding-left:18px}
+
+footer.site{background:var(--paper);border-top:1px solid var(--line);padding-block:28px 110px;font-size:13px;color:var(--muted);text-align:center}
+
+/* mandje */
+.drawer{position:fixed;inset:0;z-index:80;display:none}
+.drawer.open{display:block}
+.drawer .scrim{position:absolute;inset:0;background:rgba(20,10,25,.45)}
+.drawer .panel{position:absolute;inset:0 0 0 auto;width:min(100vw,420px);background:var(--paper);display:flex;flex-direction:column}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:16px;border-bottom:1px solid var(--line)}
+.drawer header h2{font-size:26px}
+.dl{flex:1;overflow:auto;padding:12px 16px;display:flex;flex-direction:column;gap:12px}
+.line{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:center;font-size:14px}
+.line img{width:56px;height:56px;border-radius:9px;object-fit:cover}
+.line b{color:var(--ink);font-weight:600;display:block;line-height:1.3}
+.line .rm{border:0;background:none;color:var(--muted);font-size:12.5px;text-decoration:underline;padding:0}
+.gift{display:flex;gap:10px;align-items:center;background:var(--lila-soft);border-radius:10px;padding:10px 12px;font-size:13.5px}
+.gift.locked{opacity:.55}
+.ups h3{font-size:14px;margin:6px 0 8px}
+.ups .addon{grid-template-columns:48px 1fr auto}
+.drawer .foot{border-top:1px solid var(--line);padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px));display:grid;gap:10px}
+.drawer .tot{display:flex;justify-content:space-between;font-size:16px;color:var(--ink);font-weight:600}
+
+/* mobiel koopbalk */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));display:none;transform:translateY(110%);transition:transform .3s}
+.mbar.show{transform:none}
+@media(max-width:899px){.mbar{display:block}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:90;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+.bfonly{display:none}
+[data-mode="bf"] .bfonly{display:revert}
+[data-mode="bf"] .regonly{display:none}
+/* CRO-uitleg (aan/uit) */
+.crobtn{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;background:#1c1222;color:#fff;padding:11px 16px;font-size:14px;font-weight:600;box-shadow:0 8px 24px rgba(20,10,25,.3)}
+.crobtn i{width:30px;height:18px;border-radius:99px;background:#5b4a63;position:relative;transition:background .2s}
+.crobtn i::after{content:"";position:absolute;left:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s}
+.cro-on .crobtn i{background:#e0b43c}.cro-on .crobtn i::after{transform:translateX(12px)}
+@media(max-width:899px){.crobtn{bottom:86px}}
+.cro-note{display:none;background:#fff8e1;border:1.5px solid #e0b43c;color:#3a2f12;border-radius:12px;padding:10px 12px 10px 40px;font-size:13.5px;line-height:1.45;position:relative;margin:8px 0;text-align:left;font-family:var(--ff)}
+.cro-note b{color:#2a2230}
+.cro-note::before{content:attr(data-n);position:absolute;left:10px;top:9px;width:22px;height:22px;border-radius:50%;background:#e0b43c;color:#2a2230;font-weight:700;font-size:12px;display:grid;place-items:center}
+.cro-on .cro-note{display:block}
+.cro-on [data-cro-mark]{outline:2px dashed #e0b43c;outline-offset:4px;border-radius:8px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body data-mode="bf">
+<div class="preview">Demo-preview · merk, prijzen en reviews zijn voorbeelden · beelden gemaakt met AI</div>
+
+<header class="top">
+  <div class="wrap gutter bar1">
+    <div class="h-left">
+      <button class="iconbtn" id="menuBtn" aria-label="Menu openen"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input placeholder="Zoek op steen of sieraad"></label>
+    </div>
+    <a class="logo" href="#" aria-label="Amara Sieraden"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 9l8 13 8-13z" opacity=".9"/></svg>AMARA</a>
+    <div class="h-right">
+      <button class="iconbtn" aria-label="Account"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button class="iconbtn cartbtn" id="cartBtn" aria-label="Winkelmand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="n" id="cartN">0</span></button>
+    </div>
+  </div>
+  <nav class="menu" aria-label="Hoofdmenu"><ul>
+    <li><a href="#">Nieuw</a></li><li><a href="#">Kettingen</a></li><li><a href="#">Oorbellen</a></li><li><a href="#">Armbanden</a></li><li><a href="#">Ringen</a></li><li><a href="#" aria-current="page">Sets</a></li><li><a href="#">Edelstenen</a></li><li><a href="#">Cadeaus</a></li><li><a href="#" class="sale">Black Friday</a></li>
+  </ul></nav>
+  <div class="deal gutter"><div class="wrap dealrow">
+    <div class="dtext"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-4-6-4-6-1s6 1 6 1 6 2 6-1-4-3-6 1"/></svg><span id="dealText">Nog € 250 tot gratis amethist oorknopjes</span> <span class="bfclock" id="bfClock">--</span></div>
+    <div class="dbar" aria-hidden="true"><i id="dealFill"></i>
+      <em id="m250" style="left:71.4%"><b>€ 250</b>oorknopjes</em>
+      <em id="m350" style="left:100%"><b>€ 350</b>amethist ring</em>
+    </div>
+  </div></div>
+</header>
+<div class="mnav" id="mnav"><div class="panel"><a href="#">Nieuw</a><a href="#">Kettingen</a><a href="#">Oorbellen</a><a href="#">Armbanden</a><a href="#">Ringen</a><a href="#">Sets</a><a href="#">Edelstenen</a><a href="#">Cadeaus</a><a href="#">Black Friday</a></div></div>
+
+<main>
+<div class="wrap gutter crumbs"><a href="#">Home</a> / <a href="#">Sets</a> / Amethist</div>
+
+<section class="wrap gutter hero">
+  <div class="gallery">
+    <div class="stage" id="stage"></div>
+    <div class="thumbs" id="thumbs"></div>
+  </div>
+
+  <div class="buy" id="koop">
+    <span class="badge regonly">Bestseller · elke steen met de hand gezet</span>
+    <span class="badge bfonly" style="background:#000;color:#fff;border:1px solid #b57be0">Black Friday · -35% t/m maandag 30 nov</span>
+    <h1>Amara Mozaïek Set Amethist</h1>
+    <p class="sub">Collier en oorbellen met échte amethist, elke steen anders geslepen en met de hand in 925 sterling zilver gezet.</p>
+    <div class="rating"><span class="stars">★★★★★</span><b>4,9</b><a href="#reviews">418 reviews</a><span class="muted">· 2.300+ sets verstuurd</span></div>
+    <div>
+      <div class="pricebox"><span class="price" id="price">€ 247</span><span class="was" id="was">€ 329</span><span class="save" id="save">-25%</span></div>
+      <p class="klarna" id="klarna">of 3 × € 82,33 zonder rente met Klarna</p>
+    </div>
+    <div class="opts" role="group" aria-label="Kies je uitvoering">
+      <button class="opt" data-v="set" aria-pressed="true"><span class="fav">Favoriet</span><b>Set</b><span data-ptxt="set"></span></button>
+      <button class="opt" data-v="collier" aria-pressed="false"><b>Collier</b><span data-ptxt="collier"></span></button>
+      <button class="opt" data-v="oorbellen" aria-pressed="false"><b>Oorbellen</b><span data-ptxt="oorbellen"></span></button>
+    </div>
+    <div class="stock bfonly"><i></i>Nog 38 sets in deze actie</div>
+    <div class="stockbar bfonly"><i></i></div>
+    <div class="stock regonly"><i></i>Nog 7 op voorraad: elke set is anders, op = op</div>
+
+    <div class="incl">
+      <h3>Bij je set zit gratis</h3>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span>Luxe geschenkdoos + handgeschreven kaartje <s>€ 9,95</s> <em>gratis</em></span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span>Zilverpoetsdoekje <s>€ 9,95</s> <em>gratis</em></span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span>Echtheidscertificaat amethist + 925 zilver</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span>Elk jaar een gratis poetsbeurt, je hele leven lang</span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span>60 dagen ruilen, ook na het uitpakken</span></li>
+      </ul>
+      <div class="tot"><span>Samen t.w.v. <s id="worth">€ 348,90</s></span><b id="youpay">Jij betaalt € 247</b></div>
+    </div>
+
+    <div class="addons">
+      <h3>Maak het compleet</h3>
+      <label class="addon"><input type="checkbox" data-add="gravure"><img src="../img/04-geschenkdoos.jpg" alt=""><span>Gravure op het slotplaatje<small>Initialen of een datum, max. 10 tekens</small></span><span class="p">€ 9,95</span></label>
+      <label class="addon"><input type="checkbox" data-add="oorknopjes"><img src="../img/x26-oorknopjes.jpg" alt=""><span>Amethist oorknopjes<small>Voor overdag, zelfde steen</small></span><span class="p" data-ptxt="oorknopjes"></span></label>
+      <label class="addon"><input type="checkbox" data-add="armband"><img src="../img/x25-armband.jpg" alt=""><span>Mozaïek armband amethist<small>Maakt de set compleet</small></span><span class="p" data-ptxt="armband"></span></label>
+    </div>
+
+    <button class="cta" id="addMain"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span id="ctaTxt">In winkelmand · € 247</span></button>
+    <p class="ladderhint" id="ladderHint">Nog € 3 tot gratis amethist oorknopjes (t.w.v. € 49)</p>
+
+    <div class="duo">
+      <img src="../img/x25-armband.jpg" alt="Mozaïek armband amethist">
+      <div><h3>Duo: set + bijpassende armband</h3><p>Collier, oorbellen en armband. Je krijgt er ook de amethist oorknopjes gratis bij.</p>
+      <div class="row"><span class="pr" id="duoP">€ 319 <s>€ 448</s></span><button class="smallbtn" id="addDuo">Kies de Duo</button></div></div>
+    </div>
+
+    <div class="ship"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg><span>Voor 22:00 besteld, <b>morgen in huis</b>. Ruim op tijd voor Sinterklaas en kerst.</span></div>
+    <div class="trust">
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/></svg>Gratis verzending</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4"/></svg>60 dagen ruilen</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Certificaat van echtheid</div>
+      <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>iDEAL · Klarna · Bancontact</div>
+    </div>
+  </div>
+</section>
+
+<nav class="chips gutter" aria-label="Op deze pagina"><div class="wrap"><ul>
+  <li><a href="#steen">De steen</a></li><li><a href="#cadeau">Als cadeau</a></li><li><a href="#jezelf">Voor jezelf</a></li><li><a href="#vergelijk">Vergelijk</a></li><li><a href="#details">Maten</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#stenen">Andere stenen</a></li><li><a href="#faq">Vragen</a></li>
+</ul></div></nav>
+
+<!-- avatar 3: liefhebber van stenen -->
+<section class="sec gutter" id="steen"><div class="wrap split">
+  <div class="media r45"><img src="../img/03-macro.jpg" alt="Macro van de facetgeslepen amethist in zilveren zettingen" loading="lazy" style="aspect-ratio:4/5">
+    <span class="pin" style="left:30%;top:22%">Echte amethist</span>
+    <span class="pin" style="left:68%;top:46%">Facetgeslepen</span>
+    <span class="pin" style="left:34%;top:70%">925 zilver gezet</span>
+    <span class="pin" style="left:66%;top:86%">Elke vorm anders</span>
+  </div>
+  <div>
+    <p class="eyebrow">De steen</p>
+    <h2>Echte amethist. En geen twee stenen hetzelfde.</h2>
+    <p class="lead" style="margin-top:14px">Geen glas of kunststof in een paars kleurtje. Elke amethist wordt los geslepen in een eigen vorm en daarna met de hand in een zilveren rand gezet. Daardoor vangen de stenen het licht van alle kanten.</p>
+    <ul class="feats">
+      <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 4 9l8 13 8-13z"/></svg></span><span><b>Natuurlijke amethist</b>Zacht lila met kleine kleurverschillen, zoals echte steen hoort te zijn. Je krijgt er een certificaat bij.</span></li>
+      <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M9 12h6"/></svg></span><span><b>925 sterling zilver, gestempeld</b>Massief, nikkelvrij en goed te dragen bij een gevoelige huid.</span></li>
+      <li><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20 20 4M8 4h12v12"/></svg></span><span><b>Geboortesteen van februari</b>Van oudsher ook de steen van rust en balans. Een cadeau met een verhaal.</span></li>
+    </ul>
+    <p class="quote">"Ik heb veel amethist, maar deze slijpvorm had ik nog nooit gezien. Elke steen glinstert anders."<small>Ingrid, 58 · geverifieerde koper</small></p>
+  </div>
+</div></section>
+
+<!-- avatar 1 + 6: cadeau -->
+<section class="sec alt gutter" id="cadeau"><div class="wrap split rev">
+  <div class="duo2">
+    <div class="media r45" style="grid-row:span 2;aspect-ratio:auto"><video data-src="../vid/L3-doos.mp4" poster="../img/04-geschenkdoos.jpg" muted loop playsinline aria-label="Geschenkdoos met de set"></video></div>
+    <div class="media r11"><img src="../img/05-cadeau-man.jpg" alt="Cadeau overhandigen" loading="lazy"></div>
+    <div class="media r11"><img src="../img/06-moeder-dochter.jpg" alt="Moeder en dochter met de ketting" loading="lazy"></div>
+  </div>
+  <div>
+    <p class="eyebrow">Als cadeau</p>
+    <h2>Het cadeau dat ze écht gaat dragen</h2>
+    <p class="lead" style="margin-top:14px">Voor je vrouw, je vriendin of je moeder. Je hoeft niets van sieraden te weten: zacht lila en zilver passen bij bijna alles wat ze draagt.</p>
+    <ul class="checks">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span><b>Kant-en-klaar ingepakt</b> in een fluwelen doos met lint. Uit de doos, onder de boom.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span><b>Jouw tekst op een kaartje</b>, met de hand geschreven. Je typt het bij het afrekenen.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span><b>Geen prijs op de pakbon</b>, en verstuurd in een neutrale doos.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span><b>Toch niet haar smaak?</b> Ze ruilt hem binnen 60 dagen, ook na het uitpakken. Decembercadeaus tot 31 januari.</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg><span><b>Gravure</b> met haar initialen of jullie datum op het slotplaatje (+ € 9,95).</span></li>
+    </ul>
+    <p class="quote">"Mijn vrouw had hem op tweede kerstdag al om. Ik was bang dat ik verkeerd zou kiezen, maar dit was echt raak."<small>Marco, 47 · geverifieerde koper</small></p>
+    <p class="quote">"Voor de 65e van mijn moeder. Ze draagt hem nu bij elk etentje."<small>Lotte, 34 · geverifieerde koper</small></p>
+    <button class="cta" style="margin-top:22px" data-scroll="#koop">Geef de Mozaïek Set Amethist</button>
+  </div>
+</div></section>
+
+<!-- avatar 2: zichzelf trakteren -->
+<section class="sec gutter" id="jezelf"><div class="wrap split">
+  <div class="media r45"><video data-src="../vid/L2-spiegel.mp4" poster="../img/07-spiegel.jpg" muted loop playsinline aria-label="Vrouw doet de oorbellen in voor de spiegel"></video></div>
+  <div>
+    <p class="eyebrow">Voor jezelf</p>
+    <h2>Voor jezelf. Gewoon omdat het mag.</h2>
+    <p class="lead" style="margin-top:14px">Je hebt jaren voor iedereen gezorgd. Dit is een set die je niet in een la legt: je draagt hem bij een zwarte jurk, een grijze trui en gewoon op een spijkerbroek.</p>
+    <div class="ppw">
+      <div><b>2×</b><span>per maand dragen</span></div>
+      <div><b>5 jaar</b><span>gaat hij zeker mee</span></div>
+      <div><b>€ 2</b><span>per keer dragen</span></div>
+    </div>
+    <div class="duo2" style="margin-top:18px">
+      <div class="media r11"><img src="../img/10-flatlay-feest.jpg" alt="Set bij een zwarte jurk" loading="lazy"></div>
+      <div class="media r11"><img src="../img/02-gedragen.jpg" alt="Set gedragen bij een zwarte top" loading="lazy"></div>
+    </div>
+    <p class="quote">"Ik heb hem voor mijn 50e voor mezelf gekocht. Beste aankoop van het jaar, ik krijg er steeds complimenten over."<small>Annemiek, 51 · geverifieerde koper</small></p>
+  </div>
+</div></section>
+
+<!-- us vs them -->
+<section class="sec alt gutter" id="vergelijk"><div class="wrap">
+  <div class="head narrow" style="text-align:center"><p class="eyebrow">Vergelijk</p><h2>Bijoux uit de winkelstraat vs. Amara</h2><p>Allebei paars en allebei zilverkleurig. Toch heel anders als je ze naast elkaar legt.</p></div>
+  <div class="vs">
+    <table class="cmp">
+      <thead><tr><th></th><th>Winkelstraat-bijoux</th><th class="us">Amara Mozaïek Set</th></tr></thead>
+      <tbody>
+        <tr><td>Steen</td><td><span class="no">✕</span>Glas of kunststof</td><td class="us"><span class="yes">✓</span>Echte amethist met certificaat</td></tr>
+        <tr><td>Slijpvorm</td><td><span class="no">✕</span>Ronde kraaltjes, allemaal gelijk</td><td class="us"><span class="yes">✓</span>Elke steen anders, facetgeslepen</td></tr>
+        <tr><td>Metaal</td><td><span class="no">✕</span>Verzilverd, verkleurt na maanden</td><td class="us"><span class="yes">✓</span>Massief 925 sterling zilver</td></tr>
+        <tr><td>Huid</td><td><span class="no">✕</span>Vaak nikkel, kan jeuken</td><td class="us"><span class="yes">✓</span>Nikkelvrij</td></tr>
+        <tr><td>Uniek</td><td><span class="no">✕</span>Iedereen heeft dezelfde</td><td class="us"><span class="yes">✓</span>Jouw set bestaat maar één keer</td></tr>
+        <tr><td>Verpakking</td><td><span class="no">✕</span>Plastic zakje</td><td class="us"><span class="yes">✓</span>Fluwelen geschenkdoos + kaartje</td></tr>
+        <tr><td>Na de aankoop</td><td><span class="no">✕</span>Kapot is weg</td><td class="us"><span class="yes">✓</span>Elk jaar gratis poetsbeurt</td></tr>
+      </tbody>
+    </table>
+    <div>
+      <div class="media r45"><img src="../img/09-us-vs-them.jpg" alt="Goedkope paarse kralenketting naast de Amara Mozaïek Set" loading="lazy">
+        <span class="pin x" style="left:25%;top:12%">Verkleurd metaal</span>
+        <span class="pin x" style="left:25%;top:62%">Kunststof kraal</span>
+        <span class="pin v" style="left:75%;top:12%">925 zilver</span>
+        <span class="pin v" style="left:75%;top:62%">Echte amethist</span>
+      </div>
+      <p class="wist"><b>Wist je dat?</b> Echt zilver kun je altijd weer laten glanzen. Verzilverde bijoux slijt: als de laag eraf is, krijg je hem niet meer mooi.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- maten -->
+<section class="sec gutter" id="details"><div class="wrap split">
+  <div class="duo2">
+    <div class="media r45"><img src="../img/16-oorbellen-hand.jpg" alt="Oorbellen in de hand, voor de maat" loading="lazy"></div>
+    <div class="media r45"><img src="../img/12-oorbel.jpg" alt="Oorbel gedragen" loading="lazy"></div>
+  </div>
+  <div>
+    <p class="eyebrow">Maten en details</p>
+    <h2>Zo groot is hij echt</h2>
+    <table class="specs" style="margin-top:18px">
+      <tr><td>Lengte collier</td><td>45 cm + 5 cm verlengketting</td></tr>
+      <tr><td>Breedte voorkant</td><td>ca. 3 cm (twee rijen stenen)</td></tr>
+      <tr><td>Oorbellen</td><td>3,2 cm lang, zilveren haakje</td></tr>
+      <tr><td>Gewicht set</td><td>ca. 42 gram</td></tr>
+      <tr><td>Materiaal</td><td>925 sterling zilver, nikkelvrij</td></tr>
+      <tr><td>Steen</td><td>Natuurlijke amethist, facetgeslepen</td></tr>
+      <tr><td>Sluiting</td><td>Karabijnsluiting met slotplaatje (graveerbaar)</td></tr>
+    </table>
+    <p class="muted" style="margin-top:14px;font-size:14px">Omdat elke steen los geslepen wordt, kan jouw set iets afwijken van de foto. Daardoor is hij ook uniek.</p>
+  </div>
+</div></section>
+
+<!-- reviews -->
+<section class="sec alt gutter" id="reviews"><div class="wrap">
+  <div class="revtop">
+    <div class="big"><b>4,9</b><div><div class="stars">★★★★★</div><span class="muted">418 reviews · 97% raadt ons aan</span></div></div>
+    <div class="dist">
+      <div><span>5 ★</span><i><span style="width:91%"></span></i><span>381</span></div>
+      <div><span>4 ★</span><i><span style="width:7%"></span></i><span>29</span></div>
+      <div><span>3 ★</span><i><span style="width:1.5%"></span></i><span>6</span></div>
+      <div><span>2 ★</span><i><span style="width:.5%"></span></i><span>2</span></div>
+      <div><span>1 ★</span><i><span style="width:0"></span></i><span>0</span></div>
+    </div>
+  </div>
+  <h2 style="margin-bottom:22px">2.300 vrouwen dragen hem al</h2>
+  <div class="revs">
+    <article class="rev"><span class="stars">★★★★★</span><h3>Precies zo mooi als op de foto</h3><p>De stenen zijn nog mooier dan ik dacht, ze vangen echt het licht. Hij zit lekker en voelt stevig.</p><footer>Ingrid, 58 · <span class="ver">Geverifieerd</span> · Set</footer></article>
+    <article class="rev"><span class="stars">★★★★★</span><h3>Cadeau voor mijn vrouw, raak</h3><p>Weet niets van sieraden. Netjes ingepakt, met mijn eigen tekst op het kaartje. Ze was er stil van.</p><footer>Marco, 47 · <span class="ver">Geverifieerd</span> · Set + gravure</footer></article>
+    <article class="rev"><span class="stars">★★★★★</span><h3>Voor mijn moeder van 65</h3><p>Ik twijfelde over haar smaak, maar lila en zilver past bij alles wat ze draagt. Ze is er zuinig op.</p><footer>Lotte, 34 · <span class="ver">Geverifieerd</span> · Set</footer></article>
+    <article class="rev"><span class="stars">★★★★★</span><h3>Eindelijk geen jeuk</h3><p>Van goedkope kettingen krijg ik uitslag. Deze draag ik de hele dag zonder problemen.</p><footer>Petra, 44 · <span class="ver">Geverifieerd</span> · Collier</footer></article>
+    <article class="rev"><span class="stars">★★★★★</span><h3>Mijn verjaardagscadeau aan mezelf</h3><p>Ik draag hem op een zwarte coltrui en krijg steeds complimenten. Elke cent waard.</p><footer>Annemiek, 51 · <span class="ver">Geverifieerd</span> · Duo</footer></article>
+    <article class="rev"><span class="stars">★★★★☆</span><h3>Mooi, ketting iets kort voor mij</h3><p>Met de verlengketting was het goed. Prachtige stenen, snelle levering.</p><footer>Willemijn, 62 · <span class="ver">Geverifieerd</span> · Set</footer></article>
+  </div>
+  <p class="demo-note">Voorbeeldreviews voor deze demo.</p>
+</div></section>
+
+<!-- andere stenen -->
+<section class="sec gutter" id="stenen"><div class="wrap">
+  <div class="head"><p class="eyebrow">Zelfde set, andere steen</p><h2>De Mozaïek Set in andere stenen</h2></div>
+  <div class="grid4">
+    <article class="prod"><img src="../img/x21-rozenkwarts.jpg" alt="Mozaïek Set Rozenkwarts" loading="lazy"><div class="b"><h3>Mozaïek Set Rozenkwarts</h3><span class="pp" data-ptxt="rozenkwarts"></span><button class="add" data-buy="rozenkwarts">+ In mandje</button></div></article>
+    <article class="prod"><img src="../img/x22-topaas.jpg" alt="Mozaïek Set Blauwe Topaas" loading="lazy"><div class="b"><h3>Mozaïek Set Blauwe Topaas</h3><span class="pp" data-ptxt="topaas"></span><button class="add" data-buy="topaas">+ In mandje</button></div></article>
+    <article class="prod"><img src="../img/x23-labradoriet.jpg" alt="Mozaïek Set Labradoriet" loading="lazy"><div class="b"><h3>Mozaïek Set Labradoriet</h3><span class="pp" data-ptxt="labradoriet"></span><button class="add" data-buy="labradoriet">+ In mandje</button></div></article>
+    <article class="prod"><img src="../img/x24-peridot.jpg" alt="Mozaïek Set Peridot" loading="lazy"><div class="b"><h3>Mozaïek Set Peridot</h3><span class="pp" data-ptxt="peridot"></span><button class="add" data-buy="peridot">+ In mandje</button></div></article>
+  </div>
+  <h3 class="subh">Handig erbij</h3>
+  <div class="grid4">
+    <article class="prod"><img src="../img/x25-armband.jpg" alt="Mozaïek armband amethist" loading="lazy"><div class="b"><h3>Mozaïek Armband Amethist</h3><span class="pp" data-ptxt="armband"></span><button class="add" data-buy="armband">+ In mandje</button></div></article>
+    <article class="prod"><img src="../img/x26-oorknopjes.jpg" alt="Amethist oorknopjes" loading="lazy"><div class="b"><h3>Amethist Oorknopjes</h3><span class="pp" data-ptxt="oorknopjes"></span><button class="add" data-buy="oorknopjes">+ In mandje</button></div></article>
+    <article class="prod"><img src="../img/x27-ring.jpg" alt="Amethist ring" loading="lazy"><div class="b"><h3>Mozaïek Ring Amethist</h3><span class="pp" data-ptxt="ring"></span><button class="add" data-buy="ring">+ In mandje</button></div></article>
+    <article class="prod"><img src="../img/08-geode.jpg" alt="Amethist geode" loading="lazy"><div class="b"><h3>Amethist geode (decoratie)</h3><span class="pp" data-ptxt="geode"></span><button class="add" data-buy="geode">+ In mandje</button></div></article>
+  </div>
+</div></section>
+
+<!-- faq -->
+<section class="sec alt gutter" id="faq"><div class="narrow">
+  <h2 style="margin-bottom:18px">Veelgestelde vragen</h2>
+  <div class="faq">
+    <details open><summary>Is het echt amethist en echt zilver?</summary><p>Ja. Natuurlijke amethist en massief 925 sterling zilver met stempel. Bij elke set zit een echtheidscertificaat.</p></details>
+    <details><summary>Wat als ze hem niet mooi vindt?</summary><p>Ruilen of terugsturen kan binnen 60 dagen, ook als de doos al open is geweest. Wat je in december koopt, kan tot 31 januari terug.</p></details>
+    <details><summary>Past hij bij een gevoelige huid?</summary><p>925 sterling zilver is nikkelvrij. Veel klanten die van bijoux uitslag krijgen, dragen deze set zonder problemen.</p></details>
+    <details><summary>Wordt zilver niet zwart?</summary><p>Zilver kan na verloop van tijd iets doffer worden. Met het gratis poetsdoekje glanst het weer in een minuut, en één keer per jaar poetsen wij hem gratis voor je.</p></details>
+    <details><summary>Is hij op tijd in huis voor Sinterklaas of kerst?</summary><p>Voor 22:00 besteld is morgen in huis. Bestel uiterlijk 3 december voor Sinterklaas en 22 december voor kerst.</p></details>
+    <details><summary>Kan ik ook alleen de ketting of de oorbellen kopen?</summary><p>Ja, maar de set is voordeliger: je krijgt dan ook de geschenkdoos en het poetsdoekje gratis.</p></details>
+    <details><summary>Kan ik in termijnen betalen?</summary><p>Ja, met Klarna betaal je in 3 delen zonder rente. Ook iDEAL, Bancontact, creditcard en PayPal.</p></details>
+  </div>
+</div></section>
+
+<section class="sec final gutter"><div class="wrap split">
+  <div class="media r45"><img src="../img/04-geschenkdoos.jpg" alt="De set in de geschenkdoos" loading="lazy"></div>
+  <div>
+    <h2 class="regonly">Klaar om te geven, of om zelf te dragen</h2>
+    <h2 class="bfonly">Black Friday: nog maar even</h2>
+    <ul><li>Echte amethist in 925 sterling zilver</li><li>Gratis geschenkdoos, kaartje en poetsdoekje</li><li>60 dagen ruilen, morgen in huis</li></ul>
+    <div style="display:grid;gap:10px;max-width:420px">
+      <button class="cta" data-scroll="#koop" id="finalCta">Kies de set · € 247</button>
+      <button class="cta ghost" id="finalDuo">Of de Duo met armband · € 319</button>
+    </div>
+  </div>
+</div></section>
+</main>
+<footer class="site gutter">© 2026 Amara Sieraden · demo-salespagina · KvK 00000000</footer>
+
+<div class="mbar" id="mbar"><button class="cta" data-scroll="#koop" id="mbarBtn">Bekijk de set · € 247</button></div>
+<div class="drawer" id="drawer" aria-hidden="true"><div class="scrim" data-close></div><div class="panel" role="dialog" aria-label="Winkelmand">
+  <header><h2>Je mandje</h2><button class="iconbtn" data-close aria-label="Sluiten"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button></header>
+  <div class="dl" id="dl"></div>
+  <div class="foot"><div class="tot"><span>Totaal</span><span id="dTot">€ 0</span></div><p class="muted" style="font-size:12.5px;margin:0">Gratis verzending · betaal in 3 delen zonder rente</p><button class="cta">Afrekenen</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const BF = document.body.dataset.mode === 'bf';
+const IMG = '../img/', VID = '../vid/';
+// prijzen: [nu, van]
+const P = BF ? {
+  set:[214,329], collier:[194,299], oorbellen:[32,49], duo:[289,448], oorknopjes:[32,49], armband:[77,119], ring:[51,79], gravure:[0,9.95],
+  rozenkwarts:[194,299], topaas:[227,349], labradoriet:[214,329], peridot:[207,319], geode:[29,39]
+} : {
+  set:[247,329], collier:[224,299], oorbellen:[37,49], duo:[319,448], oorknopjes:[37,49], armband:[89,119], ring:[59,79], gravure:[9.95,9.95],
+  rozenkwarts:[224,299], topaas:[262,349], labradoriet:[247,329], peridot:[239,319], geode:[29,39]
+};
+const NAME = {set:'Mozaïek Set Amethist',collier:'Mozaïek Collier Amethist',oorbellen:'Mozaïek Oorbellen Amethist',duo:'Duo: Mozaïek Set + Armband Amethist',
+  oorknopjes:'Amethist Oorknopjes',armband:'Mozaïek Armband Amethist',ring:'Mozaïek Ring Amethist',gravure:'Gravure slotplaatje',
+  rozenkwarts:'Mozaïek Set Rozenkwarts',topaas:'Mozaïek Set Blauwe Topaas',labradoriet:'Mozaïek Set Labradoriet',peridot:'Mozaïek Set Peridot',geode:'Amethist geode'};
+const PIC = {set:'15-packshot-wit',collier:'01-linnen',oorbellen:'16-oorbellen-hand',duo:'x25-armband',oorknopjes:'x26-oorknopjes',armband:'x25-armband',ring:'x27-ring',
+  gravure:'04-geschenkdoos',rozenkwarts:'x21-rozenkwarts',topaas:'x22-topaas',labradoriet:'x23-labradoriet',peridot:'x24-peridot',geode:'08-geode'};
+const eur = n => '€ ' + (Number.isInteger(n) ? n : n.toFixed(2).replace('.', ','));
+const LADDER = [[250,'gratis amethist oorknopjes (t.w.v. € 49)','m250'],[350,'een gratis amethist ring (t.w.v. € 79)','m350']];
+
+// galerij
+const G = BF ? [
+  {t:'v',s:'SV2-bf-doos.mp4',p:'14-sv-doos-bf.jpg',tag:'Black Friday -35%'},{t:'i',s:'11-blackfriday.jpg'},{t:'v',s:'L1-linnen.mp4',p:'01-linnen.jpg'},
+  {t:'i',s:'02-gedragen.jpg'},{t:'i',s:'12-oorbel.jpg'},{t:'i',s:'13-sv-hand-licht.jpg',v:'collier'},{t:'i',s:'16-oorbellen-hand.jpg'},{t:'i',s:'04-geschenkdoos.jpg'}
+] : [
+  {t:'i',s:'01-linnen.jpg',pins:[['Echte amethist',50,74],['925 sterling zilver',20,40],['Gehamerde schakel',78,22],['Bijpassende oorbellen',62,48]],tag:'-25% · gratis geschenkdoos',v:'set'},
+  {t:'i',s:'02-gedragen.jpg'},{t:'i',s:'12-oorbel.jpg',v:'oorbellen'},{t:'v',s:'L3-doos.mp4',p:'04-geschenkdoos.jpg'},{t:'v',s:'L2-spiegel.mp4',p:'07-spiegel.jpg'},
+  {t:'i',s:'13-sv-hand-licht.jpg',v:'collier',tag:'Alleen het collier'},{t:'i',s:'16-oorbellen-hand.jpg'},{t:'v',s:'L1-linnen.mp4',p:'01-linnen.jpg'}
+];
+if (BF) { G[1].v = 'set'; G[4].v = 'oorbellen'; }
+const stage = document.getElementById('stage'), thumbs = document.getElementById('thumbs');
+function show(i){
+  const g = G[i];
+  stage.innerHTML = (g.t === 'v'
+    ? `<video src="${VID+g.s}" poster="${IMG+g.p}" muted loop playsinline autoplay></video>`
+    : `<img src="${IMG+g.s}" alt="Amara Mozaïek Set Amethist">`)
+    + (g.tag ? `<span class="tag">${g.tag}</span>` : '')
+    + (g.pins || []).map(p => `<span class="pin" style="left:${p[1]}%;top:${p[2]}%">${p[0]}</span>`).join('');
+  [...thumbs.children].forEach((b, k) => b.setAttribute('aria-current', k === i));
+}
+G.forEach((g, i) => {
+  const b = document.createElement('button');
+  b.setAttribute('aria-label', 'Beeld ' + (i + 1));
+  b.innerHTML = `<img src="${IMG + (g.t === 'v' ? g.p : g.s)}" alt="" loading="lazy">` + (g.t === 'v' ? '<span class="play"><svg width="8" height="8" viewBox="0 0 10 10" fill="#fff"><path d="M2 1l7 4-7 4z"/></svg></span>' : '');
+  b.onclick = () => show(i);
+  thumbs.appendChild(b);
+});
+show(0);
+
+// prijzen invullen
+document.querySelectorAll('[data-ptxt]').forEach(el => {
+  const [nu, van] = P[el.dataset.ptxt];
+  el.innerHTML = (van > nu ? `<s>${eur(van)}</s> ` : '') + eur(nu);
+});
+document.getElementById('duoP').innerHTML = `${eur(P.duo[0])} <s>${eur(P.duo[1])}</s>`;
+document.getElementById('finalDuo').textContent = `Of de Duo met armband · ${eur(P.duo[0])}`;
+
+// keuze + add-ons
+let variant = 'set';
+const pct = v => Math.round((1 - P[v][0] / P[v][1]) * 100);
+function sel(){
+  const [nu, van] = P[variant];
+  const extra = [...document.querySelectorAll('[data-add]:checked')].reduce((s, c) => s + P[c.dataset.add][0], 0);
+  document.getElementById('price').textContent = eur(nu);
+  document.getElementById('was').textContent = eur(van);
+  document.getElementById('save').textContent = '-' + pct(variant) + '%';
+  document.getElementById('klarna').textContent = `of 3 × ${eur(Math.round(nu / 3 * 100) / 100)} zonder rente met Klarna`;
+  document.getElementById('ctaTxt').textContent = 'In winkelmand · ' + eur(Math.round((nu + extra) * 100) / 100);
+  document.getElementById('youpay').textContent = 'Jij betaalt ' + eur(P.set[0]);
+  document.getElementById('worth').textContent = eur(P.set[1] + 19.9).replace('.', ',');
+  document.getElementById('finalCta').textContent = 'Kies de set · ' + eur(P.set[0]);
+  document.getElementById('mbarBtn').textContent = 'Bekijk de set · ' + eur(P.set[0]);
+  const total = cartTotal() || (nu + extra);
+  const next = LADDER.find(l => total < l[0]);
+  document.getElementById('ladderHint').textContent = next ? `Nog ${eur(Math.round((next[0] - total) * 100) / 100)} tot ${next[1]}` : 'Je krijgt de oorknopjes én de ring gratis';
+}
+document.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+  variant = b.dataset.v;
+  document.querySelectorAll('.opt').forEach(o => o.setAttribute('aria-pressed', o === b));
+  const gi = G.findIndex(g => g.v === variant);
+  if (gi > -1) show(gi);
+  sel();
+});
+document.querySelectorAll('[data-add]').forEach(c => c.onchange = sel);
+
+// mandje
+const cart = [];
+const cartTotal = () => cart.reduce((s, l) => s + P[l][0], 0);
+function add(keys){
+  keys.forEach(k => cart.push(k));
+  render(); openCart();
+}
+function render(){
+  const t = cartTotal();
+  document.getElementById('cartN').textContent = cart.length;
+  const next = LADDER.find(l => t < l[0]);
+  document.getElementById('dealText').textContent = BF
+    ? (next ? `Black Friday -35% · nog ${eur(Math.round((next[0] - t) * 100) / 100)} tot ${next[1].split(' (')[0]}` : 'Black Friday -35% · alle cadeaus vrijgespeeld')
+    : (next ? `Nog ${eur(Math.round((next[0] - t) * 100) / 100)} tot ${next[1].split(' (')[0]}` : 'Je krijgt de oorknopjes én de ring gratis');
+  document.getElementById('dealFill').style.transform = `scaleX(${Math.min(t / 350, 1)})`;
+  LADDER.forEach(l => document.getElementById(l[2]).classList.toggle('done', t >= l[0]));
+  const dl = document.getElementById('dl');
+  dl.innerHTML = cart.map((k, i) => `<div class="line"><img src="${IMG + PIC[k]}.jpg" alt=""><div><b>${NAME[k]}</b><button class="rm" data-rm="${i}">Verwijderen</button></div><span>${eur(P[k][0])}</span></div>`).join('')
+    + LADDER.map(l => `<div class="gift ${t >= l[0] ? '' : 'locked'}">🎁 ${t >= l[0] ? 'Gratis: ' + l[1] : 'Vanaf ' + eur(l[0]) + ': ' + l[1]}</div>`).join('')
+    + `<div class="gift">🎀 Gratis geschenkdoos, kaartje en poetsdoekje</div>`
+    + `<div class="ups"><h3>Vaak samen gekocht</h3>` + ['gravure', 'oorknopjes', 'armband'].filter(k => !cart.includes(k)).map(k =>
+      `<label class="addon" data-up="${k}"><img src="${IMG + PIC[k]}.jpg" alt=""><span>${NAME[k]}</span><span class="p">+ ${eur(P[k][0])}</span></label>`).join('') + '</div>';
+  dl.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { cart.splice(+b.dataset.rm, 1); render(); });
+  dl.querySelectorAll('[data-up]').forEach(b => b.onclick = () => { cart.push(b.dataset.up); render(); });
+  document.getElementById('dTot').textContent = eur(Math.round(t * 100) / 100);
+  sel();
+}
+const drawer = document.getElementById('drawer');
+const openCart = () => { drawer.classList.add('open'); drawer.setAttribute('aria-hidden', 'false'); };
+drawer.querySelectorAll('[data-close]').forEach(e => e.onclick = () => { drawer.classList.remove('open'); drawer.setAttribute('aria-hidden', 'true'); });
+document.getElementById('cartBtn').onclick = () => { render(); openCart(); };
+document.getElementById('addMain').onclick = () => add([variant, ...[...document.querySelectorAll('[data-add]:checked')].map(c => c.dataset.add)]);
+document.getElementById('addDuo').onclick = () => add(['duo', 'oorknopjes']);
+document.getElementById('finalDuo').onclick = () => add(['duo', 'oorknopjes']);
+document.querySelectorAll('[data-buy]').forEach(b => b.onclick = () => add([b.dataset.buy]));
+document.querySelectorAll('[data-scroll]').forEach(b => b.onclick = () => document.querySelector(b.dataset.scroll).scrollIntoView({behavior: 'smooth'}));
+document.getElementById('menuBtn').onclick = () => document.getElementById('mnav').classList.add('open');
+document.getElementById('mnav').onclick = e => { if (e.target.id === 'mnav') e.currentTarget.classList.remove('open'); };
+
+// mobiele koopbalk: tonen zodra het koopblok uit beeld is
+const mbar = document.getElementById('mbar');
+const addMainEl = document.getElementById('addMain');
+const mbarCheck = () => mbar.classList.toggle('show', addMainEl.getBoundingClientRect().bottom < 0);
+addEventListener('scroll', mbarCheck, {passive: true}); mbarCheck();
+
+// video's alleen afspelen in beeld
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const vo = new IntersectionObserver(es => es.forEach(e => {
+  const v = e.target;
+  if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; if (!rm) v.play().catch(() => {}); } else v.pause();
+}), {rootMargin: '100px'});
+document.querySelectorAll('video[data-src]').forEach(v => vo.observe(v));
+
+// Black Friday-countdown tot ma 30 nov 2026 23:59
+if (BF) {
+  const end = new Date('2026-11-30T23:59:00+01:00');
+  const tick = () => {
+    let s = Math.max(0, (end - new Date()) / 1000);
+    const d = Math.floor(s / 86400); s %= 86400;
+    const h = Math.floor(s / 3600); s %= 3600;
+    document.getElementById('bfClock').textContent = `${d}d ${String(h).padStart(2, '0')}u ${String(Math.floor(s / 60)).padStart(2, '0')}m`;
+  };
+  tick(); setInterval(tick, 30000);
+  document.querySelectorAll('.incl li span').forEach(s => { if (s.textContent.startsWith('Luxe')) s.innerHTML = 'Luxe geschenkdoos + kaartje <s>€ 9,95</s> <em>gratis bij elke Black Friday-set</em>'; });
+}
+render();
+
+// CRO-uitleg: per blok waarom het zo is gemaakt. Knop linksonder zet het aan/uit.
+const CRO = [
+  ['.deal .dealrow', 'Cadeauladder in de topbalk', 'De set kost € 247 en het eerste cadeau komt bij € 250. Eén kleine add-on (gravure € 9,95) trekt de klant over de drempel. Zo stijgt de gemiddelde orderwaarde. De balk telt live mee met het mandje.'],
+  ['.gallery', 'Hoofdfoto met labels', 'In één seconde zie je wat je koopt: echte amethist, 925 zilver, bijpassende oorbellen. Daarna volgen gedragen, de oorbel, het cadeau en sfeer. De foto wisselt mee met set, collier of oorbellen.'],
+  ['.rating', 'Social proof direct onder de titel', 'Bij een aankoop boven € 200 is vertrouwen de grootste drempel. Score, aantal reviews en verkochte sets staan daarom bovenaan.'],
+  ['.pricebox', 'Ankerprijs + korting + termijnen', 'De doorgestreepte € 329 en het percentage maken de korting concreet. "3 × € 82" maakt het bedrag behapbaar voor de zelfkoper.'],
+  ['.opts', 'Set als standaard en "Favoriet"', 'De set is voordeliger dan los (€ 247 tegenover € 261) en staat voorgeselecteerd. Zo kiest de meeste bezoekers de hogere orderwaarde.'],
+  ['.incl', 'Deal-stack: waarde boven prijs', 'Alles wat erbij zit, met waarde: doos, poetsdoekje, certificaat, poetsbeurt, ruilen. "T.w.v. € 348,90, jij betaalt € 247" laat de prijs klein voelen.'],
+  ['.addons', 'Add-ons vlak voor de knop', 'Kleine extra\'s op het moment van kiezen. De gravure van € 9,95 brengt de set net over € 250, dan krijgt de klant gratis oorknopjes.'],
+  ['.duo', 'Bundel met gratis cadeau', 'De Duo met armband is de optie met de hoogste orderwaarde (€ 319). Het gratis cadeau maakt hem logisch voor wie twijfelt.'],
+  ['.ship', 'Levertijd + feestdagen', 'Neemt het bezwaar "komt het op tijd?" weg bij cadeaukopers in november en december.'],
+  ['.trust', 'Risico wegnemen', 'Gratis verzending, 60 dagen ruilen, certificaat en vertrouwde betaalmethoden, vlak onder de koopknop.'],
+  ['.chips', 'Navigatie per avatar', 'Elke ad linkt naar zijn eigen anker (#cadeau, #jezelf, #steen). De bezoeker landt dus direct op het verhaal uit de ad (message match).'],
+  ['#steen .split > div:last-child', 'Avatar 3 · liefhebber van stenen', 'Bezwaar: "is het wel echt?" Het antwoord: een macrofoto met labels, natuurlijke amethist en een certificaat. Tradities mogen genoemd worden, helende werking niet.'],
+  ['#cadeau .split > div:last-child', 'Avatar 1 + 6 · cadeau voor haar of voor moeder', 'Bezwaar: "ik weet niks van sieraden" of "haar smaak raden". Het antwoord: kant-en-klaar ingepakt, een kaartje, geen prijs op de pakbon en ruilen tot 31 januari. Met een quote van een man en van een dochter.'],
+  ['#jezelf .split > div:last-child', 'Avatar 2 · zichzelf trakteren', 'Bezwaar: "duur voor mezelf". Het antwoord: € 2 per keer dragen, en een set die je bij alles draagt.'],
+  ['#vergelijk .head', 'Us vs. them', 'Laat zien waarom € 247 meer is dan bijoux van € 30: echte steen, massief zilver, nikkelvrij en uniek.'],
+  ['#details .split > div:last-child', 'Maten met foto in de hand', 'Voorkomt twijfel over de grootte en dus retouren.'],
+  ['#reviews .revtop', 'Reviews per avatar', 'Een man, een dochter, een zelfkoper en iemand met een gevoelige huid: elke bezoeker herkent zichzelf. Bovenaan staan de score en de verdeling.'],
+  ['#stenen .head', 'Cross-sell', 'Twijfelt iemand over de kleur? Dan blijft de bezoeker met dezelfde set in een andere steen op de site, plus "handig erbij" voor een hogere orderwaarde.'],
+  ['#faq h2', 'De laatste bezwaren', 'Is het echt, kan ik ruilen, past het bij een gevoelige huid, wordt het zwart, is het op tijd, kan ik in termijnen betalen. Dit zijn de vragen vlak voor de aankoop.'],
+  ['.final .split > div:last-child', 'Slot-CTA met twee keuzes', 'Wie onderaan is, is overtuigd: de set of meteen de Duo.'],
+];
+if (BF) CRO[1] = ['.gallery', 'Black Friday-hero', 'De doos die opengaat in slow motion is hetzelfde beeld als de Black Friday-scroll-stopper in de ads, dus bezoekers herkennen het meteen. Daarna komen het product, gedragen en de oorbel. De foto wisselt mee met set, collier of oorbellen.'];
+if (BF) CRO.unshift(['.dtext', 'Black Friday: echte deadline', 'De countdown tot maandag 30 november 23:59 en de voorraadteller (nog 38 sets) geven urgentie die klopt. Daarom staan ze in de topbalk.']);
+CRO.forEach(([sel, kop, txt], i) => {
+  const el = document.querySelector(sel); if (!el) return;
+  el.setAttribute('data-cro-mark', '');
+  const n = document.createElement('div');
+  n.className = 'cro-note'; n.dataset.n = i + 1;
+  n.innerHTML = `<b>${kop}.</b> ${txt}`;
+  // notities bij de vaste header komen onder de broodkruimel, anders groeit de header
+  if (el.closest('.top')) { (window._croAnchor || document.querySelector('.crumbs')).insertAdjacentElement('afterend', Object.assign(n, {style: 'margin:10px auto 0;max-width:1128px'})); window._croAnchor = n; }
+  else el.insertAdjacentElement('beforebegin', n);
+});
+const croBtn = document.createElement('button');
+croBtn.className = 'crobtn'; croBtn.type = 'button';
+croBtn.innerHTML = '<i></i>CRO-uitleg';
+document.body.appendChild(croBtn);
+const croSet = on => { document.body.classList.toggle('cro-on', on); croBtn.setAttribute('aria-pressed', on); try { localStorage.setItem('amaraCro', on ? '1' : '0'); } catch (e) {} };
+let croStart = false; try { croStart = localStorage.getItem('amaraCro') === '1'; } catch (e) {}
+croSet(croStart);
+croBtn.onclick = () => croSet(!document.body.classList.contains('cro-on'));
+</script>
+</body>
+</html>
