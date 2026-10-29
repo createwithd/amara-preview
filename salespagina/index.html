@@ -311,6 +311,7 @@ footer.site{background:var(--paper);border-top:1px solid var(--line);padding-blo
 .has-pi{position:relative}
 .pi{display:none;position:absolute;z-index:25;width:190px;background:#ffe36e;color:#2a2230;font-family:var(--ff);font-size:12.5px;line-height:1.4;font-weight:500;text-align:left;padding:10px 12px 12px;border-radius:2px;box-shadow:0 8px 18px rgba(40,30,0,.25);transform:rotate(var(--rot,-2deg));pointer-events:none}
 .pi::after{content:"";position:absolute;left:22px;bottom:-11px;border:6px solid transparent;border-top:6px solid #ffe36e;border-left:6px solid #ffe36e;filter:drop-shadow(0 3px 2px rgba(40,30,0,.15))}
+.pi b{display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;margin-bottom:2px}
 .pi-on .pi{display:block}
 @media(max-width:600px){.pi{width:170px;font-size:12px;right:4px!important}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
@@ -761,31 +762,31 @@ render();
 
 // Post-its: korte uitleg in simpele taal, per blok. [selector, tekst, positie]
 const PI = [
-  ['.crumbs', 'Set € 247, cadeau vanaf € 250. Klein extraatje = grotere bestelling.', 'right:0;top:0'],
-  ['.gallery', 'Eerst het product met labels. Foto wisselt mee met je keuze.', 'right:-8px;top:56px'],
-  ['.pricebox', 'Sterren, oude prijs en 3× betalen: vertrouwen en het bedrag voelt kleiner. Set staat al aan.', 'right:0;top:-40px'],
-  ['.incl', 'Alles wat erbij zit, met waarde. Voelt als meer.', 'right:-8px;top:-14px'],
-  ['.addons', 'Gravure erbij = net over € 250.', 'right:0;top:-14px'],
-  ['.duo', 'Duurste keuze, met gratis cadeau.', 'right:-6px;top:-24px'],
-  ['.trust', 'Twijfel weg: gratis verzenden, ruilen, certificaat.', 'right:0;top:-40px'],
-  ['#steen .split > div:last-child', 'Stenenliefhebber: bewijs dat het echt is.', 'right:0;top:-20px'],
-  ['#cadeau .split > div:last-child', 'Man en dochter: smaak raden zonder risico.', 'right:0;top:-20px'],
-  ['#jezelf .split > div:last-child', 'Zelfkoper: een set voor jaren, niet voor één keer.', 'right:0;top:-20px'],
-  ['#vergelijk .head', 'Waarom dit meer kost dan bijoux.', 'right:0;top:-20px'],
-  ['#details .split > div:last-child', 'Maat in de hand: minder retouren.', 'right:0;top:-20px'],
-  ['#reviews .revtop', 'Een review per doelgroep.', 'right:0;top:-24px'],
-  ['#stenen .head', 'Andere kleur? Toch blijven.', 'right:0;top:-10px'],
-  ['#faq .faq', 'Laatste vragen voor het kopen.', 'right:0;top:-40px'],
-  ['.final .split > div:last-child', 'Nog één keer kiezen: set of Duo.', 'right:0;top:-20px'],
+  ['.crumbs', '<b>Hoger bestelbedrag</b>Set € 247, cadeau vanaf € 250. Klanten doen er dan net iets bij.', 'right:0;top:0'],
+  ['.gallery', '<b>Meteen duidelijk</b>In 1 seconde zien wat je koopt. Foto wisselt mee met je keuze.', 'right:-8px;top:56px'],
+  ['.pricebox', '<b>Prijs voelt lager</b>Oude prijs doorgestreept, sterren en 3× betalen.', 'right:0;top:-40px'],
+  ['.incl', '<b>Meer waarde dan prijs</b>Alles wat erbij zit op een rij. Voelt als een goede deal.', 'right:-8px;top:-14px'],
+  ['.addons', '<b>Extraatje bij de knop</b>Gravure erbij en je zit boven € 250.', 'right:0;top:-14px'],
+  ['.duo', '<b>Duurdere optie</b>Met een gratis cadeau kiezen meer mensen voor meer.', 'right:-6px;top:-24px'],
+  ['.trust', '<b>Risico weg</b>Gratis verzenden en ruilen vlak bij de knop: minder twijfel.', 'right:0;top:-40px'],
+  ['#steen .split > div:last-child', '<b>Twijfel: is het echt?</b>Bewijs met foto van dichtbij en certificaat.', 'right:0;top:-20px'],
+  ['#cadeau .split > div:last-child', '<b>Twijfel: vindt ze het mooi?</b>Ruilen tot 31 januari, dus geen risico.', 'right:0;top:-20px'],
+  ['#jezelf .split > div:last-child', '<b>Twijfel: duur voor mezelf?</b>Je draagt hem jaren, niet één keer.', 'right:0;top:-20px'],
+  ['#vergelijk .head', '<b>Waarom deze prijs</b>Naast goedkope bijoux snap je het verschil.', 'right:0;top:-20px'],
+  ['#details .split > div:last-child', '<b>Geen verrassingen</b>Maat in de hand: minder twijfel en retouren.', 'right:0;top:-20px'],
+  ['#reviews .revtop', '<b>Anderen gingen je voor</b>Een review voor elk type koper.', 'right:0;top:-24px'],
+  ['#stenen .head', '<b>Niet weg van de site</b>Andere kleur? Hier kies je toch.', 'right:0;top:-10px'],
+  ['#faq .faq', '<b>Laatste vragen</b>Antwoord vlak voor het kopen, dus niet uitstellen.', 'right:0;top:-40px'],
+  ['.final .split > div:last-child', '<b>Laatste duwtje</b>Onderaan nog één keer kiezen.', 'right:0;top:-20px'],
 ];
-if (BF) PI.unshift(['.buy h1', 'Echte einddatum + voorraad = haast.', 'right:0;top:-46px']);
+if (BF) PI.unshift(['.buy h1', '<b>Nu of nooit</b>Echte einddatum en voorraad: kopen nu, niet later.', 'right:0;top:-46px']);
 PI.forEach(([sel, txt, pos], i) => {
   const el = document.querySelector(sel); if (!el) return;
   el.classList.add('has-pi');
   const n = document.createElement('div');
   n.className = 'pi';
   n.style.cssText = pos + ';--rot:' + (i % 2 ? '2deg' : '-2deg');
-  n.textContent = txt;
+  n.innerHTML = txt;
   el.appendChild(n);
 });
 const piBtn = document.createElement('button');
