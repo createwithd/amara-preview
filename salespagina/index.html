@@ -304,17 +304,15 @@ footer.site{background:var(--paper);border-top:1px solid var(--line);padding-blo
 .bfonly{display:none}
 [data-mode="bf"] .bfonly{display:revert}
 [data-mode="bf"] .regonly{display:none}
-/* CRO-uitleg (aan/uit) */
-.crobtn{position:fixed;left:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:8px;border:0;border-radius:999px;background:#1c1222;color:#fff;padding:11px 16px;font-size:14px;font-weight:600;box-shadow:0 8px 24px rgba(20,10,25,.3)}
-.crobtn i{width:30px;height:18px;border-radius:99px;background:#5b4a63;position:relative;transition:background .2s}
-.crobtn i::after{content:"";position:absolute;left:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .2s}
-.cro-on .crobtn i{background:#e0b43c}.cro-on .crobtn i::after{transform:translateX(12px)}
-@media(max-width:899px){.crobtn{bottom:86px}}
-.cro-note{display:none;background:#fff8e1;border:1.5px solid #e0b43c;color:#3a2f12;border-radius:12px;padding:10px 12px 10px 40px;font-size:13.5px;line-height:1.45;position:relative;margin:8px 0;text-align:left;font-family:var(--ff)}
-.cro-note b{color:#2a2230}
-.cro-note::before{content:attr(data-n);position:absolute;left:10px;top:9px;width:22px;height:22px;border-radius:50%;background:#e0b43c;color:#2a2230;font-weight:700;font-size:12px;display:grid;place-items:center}
-.cro-on .cro-note{display:block}
-.cro-on [data-cro-mark]{outline:2px dashed #e0b43c;outline-offset:4px;border-radius:8px}
+/* Post-its met CRO-uitleg: liggen óver de pagina (absolute), dus niets verschuift. Knop linksonder zet ze aan/uit. */
+.pibtn{position:fixed;left:16px;bottom:16px;z-index:60;border:0;border-radius:10px;background:#ffe36e;color:#2a2230;padding:10px 16px;font-size:14px;font-weight:700;box-shadow:0 6px 18px rgba(20,10,25,.25);transform:rotate(-2deg)}
+.pi-on .pibtn{background:#2a2230;color:#ffe36e}
+@media(max-width:899px){.pibtn{bottom:86px}}
+.has-pi{position:relative}
+.pi{display:none;position:absolute;z-index:25;width:190px;background:#ffe36e;color:#2a2230;font-family:var(--ff);font-size:12.5px;line-height:1.4;font-weight:500;text-align:left;padding:10px 12px 12px;border-radius:2px;box-shadow:0 8px 18px rgba(40,30,0,.25);transform:rotate(var(--rot,-2deg));pointer-events:none}
+.pi::after{content:"";position:absolute;left:22px;bottom:-11px;border:6px solid transparent;border-top:6px solid #ffe36e;border-left:6px solid #ffe36e;filter:drop-shadow(0 3px 2px rgba(40,30,0,.15))}
+.pi-on .pi{display:block}
+@media(max-width:600px){.pi{width:170px;font-size:12px;right:4px!important}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -761,49 +759,42 @@ if (BF) {
 }
 render();
 
-// CRO-uitleg: per blok waarom het zo is gemaakt. Knop linksonder zet het aan/uit.
-const CRO = [
-  ['.deal .dealrow', 'Cadeauladder in de topbalk', 'De set kost € 247 en het eerste cadeau komt bij € 250. Eén kleine add-on (gravure € 9,95) trekt de klant over de drempel. Zo stijgt de gemiddelde orderwaarde. De balk telt live mee met het mandje.'],
-  ['.gallery', 'Hoofdfoto met labels', 'In één seconde zie je wat je koopt: echte amethist, 925 zilver, bijpassende oorbellen. Daarna volgen gedragen, de oorbel, het cadeau en sfeer. De foto wisselt mee met set, collier of oorbellen.'],
-  ['.rating', 'Social proof direct onder de titel', 'Bij een aankoop boven € 200 is vertrouwen de grootste drempel. Score, aantal reviews en verkochte sets staan daarom bovenaan.'],
-  ['.pricebox', 'Ankerprijs + korting + termijnen', 'De doorgestreepte € 329 en het percentage maken de korting concreet. "3 × € 82" maakt het bedrag behapbaar voor de zelfkoper.'],
-  ['.opts', 'Set als standaard en "Favoriet"', 'De set is voordeliger dan los (€ 247 tegenover € 261) en staat voorgeselecteerd. Zo kiest de meeste bezoekers de hogere orderwaarde.'],
-  ['.incl', 'Deal-stack: waarde boven prijs', 'Alles wat erbij zit, met waarde: doos, poetsdoekje, certificaat, poetsbeurt, ruilen. "T.w.v. € 348,90, jij betaalt € 247" laat de prijs klein voelen.'],
-  ['.addons', 'Add-ons vlak voor de knop', 'Kleine extra\'s op het moment van kiezen. De gravure van € 9,95 brengt de set net over € 250, dan krijgt de klant gratis oorknopjes.'],
-  ['.duo', 'Bundel met gratis cadeau', 'De Duo met armband is de optie met de hoogste orderwaarde (€ 319). Het gratis cadeau maakt hem logisch voor wie twijfelt.'],
-  ['.ship', 'Levertijd + feestdagen', 'Neemt het bezwaar "komt het op tijd?" weg bij cadeaukopers in november en december.'],
-  ['.trust', 'Risico wegnemen', 'Gratis verzending, 60 dagen ruilen, certificaat en vertrouwde betaalmethoden, vlak onder de koopknop.'],
-  ['.chips', 'Navigatie per avatar', 'Elke ad linkt naar zijn eigen anker (#cadeau, #jezelf, #steen). De bezoeker landt dus direct op het verhaal uit de ad (message match).'],
-  ['#steen .split > div:last-child', 'Avatar 3 · liefhebber van stenen', 'Bezwaar: "is het wel echt?" Het antwoord: een macrofoto met labels, natuurlijke amethist en een certificaat. Tradities mogen genoemd worden, helende werking niet.'],
-  ['#cadeau .split > div:last-child', 'Avatar 1 + 6 · cadeau voor haar of voor moeder', 'Bezwaar: "ik weet niks van sieraden" of "haar smaak raden". Het antwoord: kant-en-klaar ingepakt, een kaartje, geen prijs op de pakbon en ruilen tot 31 januari. Met een quote van een man en van een dochter.'],
-  ['#jezelf .split > div:last-child', 'Avatar 2 · zichzelf trakteren', 'Bezwaar: "duur voor mezelf". Het antwoord: € 2 per keer dragen, en een set die je bij alles draagt.'],
-  ['#vergelijk .head', 'Us vs. them', 'Laat zien waarom € 247 meer is dan bijoux van € 30: echte steen, massief zilver, nikkelvrij en uniek.'],
-  ['#details .split > div:last-child', 'Maten met foto in de hand', 'Voorkomt twijfel over de grootte en dus retouren.'],
-  ['#reviews .revtop', 'Reviews per avatar', 'Een man, een dochter, een zelfkoper en iemand met een gevoelige huid: elke bezoeker herkent zichzelf. Bovenaan staan de score en de verdeling.'],
-  ['#stenen .head', 'Cross-sell', 'Twijfelt iemand over de kleur? Dan blijft de bezoeker met dezelfde set in een andere steen op de site, plus "handig erbij" voor een hogere orderwaarde.'],
-  ['#faq h2', 'De laatste bezwaren', 'Is het echt, kan ik ruilen, past het bij een gevoelige huid, wordt het zwart, is het op tijd, kan ik in termijnen betalen. Dit zijn de vragen vlak voor de aankoop.'],
-  ['.final .split > div:last-child', 'Slot-CTA met twee keuzes', 'Wie onderaan is, is overtuigd: de set of meteen de Duo.'],
+// Post-its: korte uitleg in simpele taal, per blok. [selector, tekst, positie]
+const PI = [
+  ['.crumbs', 'Set € 247, cadeau vanaf € 250. Klein extraatje = grotere bestelling.', 'right:0;top:0'],
+  ['.gallery', 'Eerst het product met labels. Foto wisselt mee met je keuze.', 'right:-8px;top:56px'],
+  ['.pricebox', 'Sterren, oude prijs en 3× betalen: vertrouwen en het bedrag voelt kleiner. Set staat al aan.', 'right:0;top:-40px'],
+  ['.incl', 'Alles wat erbij zit, met waarde. Voelt als meer.', 'right:-8px;top:-14px'],
+  ['.addons', 'Gravure erbij = net over € 250.', 'right:0;top:-14px'],
+  ['.duo', 'Duurste keuze, met gratis cadeau.', 'right:-6px;top:-24px'],
+  ['.trust', 'Twijfel weg: gratis verzenden, ruilen, certificaat.', 'right:0;top:-40px'],
+  ['#steen .split > div:last-child', 'Stenenliefhebber: bewijs dat het echt is.', 'right:0;top:-20px'],
+  ['#cadeau .split > div:last-child', 'Man en dochter: smaak raden zonder risico.', 'right:0;top:-20px'],
+  ['#jezelf .split > div:last-child', 'Zelfkoper: een set voor jaren, niet voor één keer.', 'right:0;top:-20px'],
+  ['#vergelijk .head', 'Waarom dit meer kost dan bijoux.', 'right:0;top:-20px'],
+  ['#details .split > div:last-child', 'Maat in de hand: minder retouren.', 'right:0;top:-20px'],
+  ['#reviews .revtop', 'Een review per doelgroep.', 'right:0;top:-24px'],
+  ['#stenen .head', 'Andere kleur? Toch blijven.', 'right:0;top:-10px'],
+  ['#faq .faq', 'Laatste vragen voor het kopen.', 'right:0;top:-40px'],
+  ['.final .split > div:last-child', 'Nog één keer kiezen: set of Duo.', 'right:0;top:-20px'],
 ];
-if (BF) CRO[1] = ['.gallery', 'Black Friday-hero', 'De doos die opengaat in slow motion is hetzelfde beeld als de Black Friday-scroll-stopper in de ads, dus bezoekers herkennen het meteen. Daarna komen het product, gedragen en de oorbel. De foto wisselt mee met set, collier of oorbellen.'];
-if (BF) CRO.unshift(['.dtext', 'Black Friday: echte deadline', 'De countdown tot maandag 30 november 23:59 en de voorraadteller (nog 38 sets) geven urgentie die klopt. Daarom staan ze in de topbalk.']);
-CRO.forEach(([sel, kop, txt], i) => {
+if (BF) PI.unshift(['.buy h1', 'Echte einddatum + voorraad = haast.', 'right:0;top:-46px']);
+PI.forEach(([sel, txt, pos], i) => {
   const el = document.querySelector(sel); if (!el) return;
-  el.setAttribute('data-cro-mark', '');
+  el.classList.add('has-pi');
   const n = document.createElement('div');
-  n.className = 'cro-note'; n.dataset.n = i + 1;
-  n.innerHTML = `<b>${kop}.</b> ${txt}`;
-  // notities bij de vaste header komen onder de broodkruimel, anders groeit de header
-  if (el.closest('.top')) { (window._croAnchor || document.querySelector('.crumbs')).insertAdjacentElement('afterend', Object.assign(n, {style: 'margin:10px auto 0;max-width:1128px'})); window._croAnchor = n; }
-  else el.insertAdjacentElement('beforebegin', n);
+  n.className = 'pi';
+  n.style.cssText = pos + ';--rot:' + (i % 2 ? '2deg' : '-2deg');
+  n.textContent = txt;
+  el.appendChild(n);
 });
-const croBtn = document.createElement('button');
-croBtn.className = 'crobtn'; croBtn.type = 'button';
-croBtn.innerHTML = '<i></i>CRO-uitleg';
-document.body.appendChild(croBtn);
-const croSet = on => { document.body.classList.toggle('cro-on', on); croBtn.setAttribute('aria-pressed', on); try { localStorage.setItem('amaraCro', on ? '1' : '0'); } catch (e) {} };
-let croStart = false; try { croStart = localStorage.getItem('amaraCro') === '1'; } catch (e) {}
-croSet(croStart);
-croBtn.onclick = () => croSet(!document.body.classList.contains('cro-on'));
+const piBtn = document.createElement('button');
+piBtn.className = 'pibtn'; piBtn.type = 'button'; piBtn.textContent = 'Uitleg';
+document.body.appendChild(piBtn);
+const piSet = on => { document.body.classList.toggle('pi-on', on); piBtn.setAttribute('aria-pressed', on); piBtn.textContent = on ? 'Uitleg uit' : 'Uitleg'; try { localStorage.setItem('amaraPi', on ? '1' : '0'); } catch (e) {} };
+let piStart = false; try { piStart = localStorage.getItem('amaraPi') === '1'; } catch (e) {}
+piSet(piStart);
+piBtn.onclick = () => piSet(!document.body.classList.contains('pi-on'));
 </script>
 </body>
 </html>
