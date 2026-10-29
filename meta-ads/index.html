@@ -1,169 +1,193 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Amara Meta-ads</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600&display=swap">
+<title>Amara Meta-ads per avatar</title><meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap">
 <style>
-:root{--bg:#fbf8f5;--paper:#fff;--plum:#5a2d6e;--lila-s:#f3edf7;--ink:#2a2230;--text:#4e4755;--muted:#7c7483;--line:#e8e0ea}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 Poppins,system-ui,sans-serif}
-.top{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 16px}
-.top h1{margin:0;font:700 28px "Cormorant Garamond",serif;color:var(--ink)}
-.top nav{display:flex;gap:8px;overflow-x:auto;margin-top:8px;scrollbar-width:none}
-.top nav a{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:5px 12px;text-decoration:none;color:var(--text);font-size:13px}
-.intro{max-width:1240px;margin:20px auto 0;padding:0 16px;font-size:14px}
-.av{max-width:1240px;margin:0 auto;padding:36px 16px 10px;scroll-margin-top:100px}
-.avh h2{margin:0;font:700 34px "Cormorant Garamond",serif;color:var(--ink)}.avh small{font:500 14px Poppins;color:var(--muted);margin-left:8px}
-.meta{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:12px 0 20px}
-.meta p{margin:0;background:var(--lila-s);border-radius:12px;padding:10px 12px;font-size:13.5px}.meta b{display:block;color:var(--plum);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-.ad{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}
-.ad header{display:flex;justify-content:space-between;align-items:center}.ad header b{color:var(--ink);font-size:16px}.ad header span{font-size:12px;color:var(--muted)}
-.tabs{display:flex;gap:6px}.tabs button{flex:1;border:1px solid var(--line);background:none;border-radius:8px;padding:5px;font:inherit;font-size:12.5px;cursor:pointer}
-.tabs button[aria-pressed=true]{background:var(--plum);color:#fff;border-color:var(--plum)}
-.frame{border-radius:10px;overflow:hidden;background:#eee}.frame.f{aspect-ratio:4/5}.frame.s{aspect-ratio:9/16}
-.frame img,.frame video{width:100%;height:100%;object-fit:cover;display:block}
-dl{margin:0;font-size:13px}dt{font-weight:600;color:var(--ink);margin-top:6px;font-size:12px}dd{margin:0}code{background:var(--lila-s);padding:1px 5px;border-radius:5px}
-.dl{display:flex;gap:10px;font-size:12.5px;margin-top:auto}.dl a{color:var(--plum)}
+:root{color-scheme:light;--room:#fbf8f5;--plum:#5a2d6e;--ink:#2a2230;--text:#4e4755;--line:#e8e0ea}
+*{box-sizing:border-box}html{overflow-anchor:none}
+body{margin:0;font-family:Poppins,system-ui,sans-serif;background:var(--room);color:var(--text);-webkit-font-smoothing:antialiased}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1240px;margin:0 auto}
+header{padding-block:36px 10px}
+.logo{font:700 30px "Cormorant Garamond",serif;letter-spacing:.22em;color:var(--ink)}
+h1{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,4.6vw,46px);font-weight:700;color:var(--ink);margin:16px 0 8px;line-height:1.1;text-wrap:balance}
+header p{max-width:780px;line-height:1.6;margin:0}
+.wat{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.wat span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--ink)}
+.schakel{position:sticky;top:0;z-index:5;background:var(--room);border-bottom:1px solid var(--line);padding-block:12px}
+.schakel .wrap{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.schakel button{font:inherit;font-weight:600;border:1.5px solid var(--plum);background:transparent;color:var(--plum);padding:8px 18px;border-radius:999px;cursor:pointer;min-height:42px}
+.schakel button[aria-pressed=true]{background:var(--plum);color:#fff}
+.schakel nav{margin-left:auto;display:flex;gap:14px;font-size:14px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.schakel nav a{color:var(--plum);font-weight:600;text-decoration:none;white-space:nowrap}
+section{padding-block:34px 8px;scroll-margin-top:80px}
+h2{font-family:"Cormorant Garamond",serif;font-size:32px;font-weight:700;color:var(--ink);margin:0}
+.uitleg{margin:6px 0 20px;max-width:820px;line-height:1.6}.uitleg small{color:#7c7483}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:26px}
+.post{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#1c1e21}
+.kp{display:flex;gap:10px;align-items:center;padding:12px}
+.av{width:36px;height:36px;border-radius:50%;background:var(--plum);color:#fff;display:grid;place-items:center;font:700 15px Poppins,sans-serif;color:#fff!important}
+.kp b{display:block;font-size:14px}.kp span{font-size:12px;color:#65676b}
+.prim{font-size:14px;line-height:1.45;padding:0 12px 12px;margin:0}
+.media{position:relative}
+.media img,.media video{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:#eee}
+body.story .media img,body.story .media video{aspect-ratio:9/16}
+.media .s{display:none}body.story .media .f{display:none}body.story .media .s{display:block}
+body.story .prim,body.story .cta{display:none}
+.vtag{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.6);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px}
+.cta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px;background:#f0f2f5}
+.cta small{font-size:11px;color:#65676b;display:block}.cta b{font-size:15px;display:block}.cta span{font-size:13px;color:#65676b}
+.cta a{flex:none;background:#e4e6eb;border-radius:6px;padding:8px 14px;font-weight:600;font-size:14px}
+.meta{font-size:13px;margin:8px 0 0}.meta b{color:var(--plum)}
+footer{padding-block:40px 60px;font-size:13px}
 </style></head><body>
-<div class="top"><h1>Amara · Meta-ads per advertentieset</h1><nav><a href="#cadeau">Het cadeau voor haar</a><a href="#jezelf">Zichzelf trakteren</a><a href="#steen">Liefhebber van stenen</a><a href="#moeder">Cadeau voor moeder</a><a href="#alle">Retargeting</a><a href="#bf">27 t/m 30 november</a></nav></div>
-<p class="intro">24 ads, elk in feed 4:5 en story 9:16. Elk blok is één advertentieset in Meta. Video's spelen af zodra ze in beeld zijn. Teksten staan per ad onder het beeld; landingsankers verwijzen naar de salespagina. Demo: beelden gemaakt met AI, reviews zijn voorbeelden.</p>
-<section class="av" id="cadeau"><div class="avh"><h2>Avatar 1 · Het cadeau voor haar <small>5 ads</small></h2>
-<div class="meta"><p><b>Wie</b>Man, 35-60, zoekt een cadeau voor vrouw of vriendin (verjaardag, jubileum, Sinterklaas, kerst).</p><p><b>Bezwaar</b>"Ik weet niks van sieraden, straks vindt ze het niks."</p><p><b>Belofte</b>Kant-en-klaar in een doos met kaartje, 60 dagen ruilen (decembercadeaus tot 31 jan).</p><p><b>Targeting</b>Mannen 35-65 NL+BE · interesses: sieraden, cadeaus, huwelijk/jubileum · life event: verjaardag partner binnen 30 dagen</p></div></div>
-<div class="grid"><article class="ad"><header><b>Ad 1</b><span>Scroll-stopper</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad01-f.mp4" poster="media/ad01-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad01-s.mp4" poster="media/ad01-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>Ze gaat hem dragen, niet in een la leggen. De Amara Mozaïek Set Amethist: collier en oorbellen met echte amethist in 925 sterling zilver. Kant-en-klaar ingepakt, nu 25% korting.</dd><dt>Kop</dt><dd>Het cadeau dat ze écht draagt</dd><dt>Beschrijving</dt><dd>Gratis geschenkdoos · 60 dagen ruilen</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#cadeau</code></dd></dl>
-<div class="dl"><a href="media/ad01-f.mp4" download>Feed downloaden</a><a href="media/ad01-s.mp4" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 2</b><span>Video-loop</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad02-f.mp4" poster="media/ad02-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad02-s.mp4" poster="media/ad02-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>Geen idee wat je haar moet geven? De Amara Mozaïek Set Amethist komt in een fluwelen doos, met jouw tekst met de hand op een kaartje. Past het toch niet? Ze ruilt hem tot 31 januari.</dd><dt>Kop</dt><dd>Kant-en-klaar ingepakt, -25%</dd><dt>Beschrijving</dt><dd>Echte amethist · 925 zilver</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#cadeau</code></dd></dl>
-<div class="dl"><a href="media/ad02-f.mp4" download>Feed downloaden</a><a href="media/ad02-s.mp4" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 3</b><span>Statisch · band</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad03-f.jpg" alt="Ad 3 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad03-s.jpg" alt="Ad 3 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Weet je niet wat je haar moet geven? Collier + oorbellen met echte amethist, ingepakt in een fluwelen doos, kaartje erbij. Jij hoeft alleen nog te geven.</dd><dt>Kop</dt><dd>Het cadeau is al ingepakt</dd><dt>Beschrijving</dt><dd>Nu 25% korting · gratis verzending</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#cadeau</code></dd></dl>
-<div class="dl"><a href="media/ad03-f.jpg" download>Feed downloaden</a><a href="media/ad03-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 4</b><span>Statisch · labels</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad04-f.jpg" alt="Ad 4 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad04-s.jpg" alt="Ad 4 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Alles zit erin: de Amara Mozaïek Set Amethist, een fluwelen geschenkdoos en een handgeschreven kaartje met jouw tekst. Voor 22:00 besteld, morgen in huis.</dd><dt>Kop</dt><dd>Bestel op tijd voor de feestdagen</dd><dt>Beschrijving</dt><dd>Collier + oorbellen · -25%</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#cadeau</code></dd></dl>
-<div class="dl"><a href="media/ad04-f.jpg" download>Feed downloaden</a><a href="media/ad04-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 5</b><span>Statisch · review</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad05-f.jpg" alt="Ad 5 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad05-s.jpg" alt="Ad 5 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>&quot;Mijn vrouw had hem op tweede kerstdag al om.&quot; Marco wist niets van sieraden en koos de Amara Mozaïek Set Amethist. 4,9 uit 418 reviews.</dd><dt>Kop</dt><dd>&quot;Ik was bang dat ik verkeerd zou kiezen&quot;</dd><dt>Beschrijving</dt><dd>4,9 ★ · 418 reviews</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#reviews</code></dd></dl>
-<div class="dl"><a href="media/ad05-f.jpg" download>Feed downloaden</a><a href="media/ad05-s.jpg" download>Story downloaden</a></div></article></div></section><section class="av" id="jezelf"><div class="avh"><h2>Avatar 2 · Zichzelf trakteren <small>4 ads</small></h2>
-<div class="meta"><p><b>Wie</b>Vrouw, 40-60, kinderen de deur uit, meer tijd en budget voor zichzelf.</p><p><b>Bezwaar</b>"Duur voor iets voor mezelf."</p><p><b>Belofte</b>Een set die je jaren draagt bij zwart, grijs en spijkerbroek: € 2 per keer dragen.</p><p><b>Targeting</b>Vrouwen 40-62 NL+BE · interesses: mode, sieraden, Rituals, wellness · Advantage+ aan</p></div></div>
-<div class="grid"><article class="ad"><header><b>Ad 6</b><span>Video-loop</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad06-f.mp4" poster="media/ad06-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad06-s.mp4" poster="media/ad06-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>Je hebt jaren voor iedereen gezorgd. Deze is voor jou: de Amara Mozaïek Set Amethist, echte amethist in 925 sterling zilver. Nu 25% korting.</dd><dt>Kop</dt><dd>Voor jezelf. Omdat het mag.</dd><dt>Beschrijving</dt><dd>Collier + oorbellen · -25%</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#jezelf</code></dd></dl>
-<div class="dl"><a href="media/ad06-f.mp4" download>Feed downloaden</a><a href="media/ad06-s.mp4" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 7</b><span>Statisch · flatlay</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad07-f.jpg" alt="Ad 7 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad07-s.jpg" alt="Ad 7 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Bij een zwarte jurk, een grijze trui of gewoon je spijkerbroek. De Amara Mozaïek Set Amethist draag je niet één keer, maar honderd keer.</dd><dt>Kop</dt><dd>Eén set, honderd keer dragen</dd><dt>Beschrijving</dt><dd>Echte amethist · nikkelvrij</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#jezelf</code></dd></dl>
-<div class="dl"><a href="media/ad07-f.jpg" download>Feed downloaden</a><a href="media/ad07-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 8</b><span>Statisch · band</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad08-f.jpg" alt="Ad 8 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad08-s.jpg" alt="Ad 8 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Twee keer per maand, vijf jaar lang: dan kost de Amara Mozaïek Set Amethist je € 2 per keer dragen. Massief zilver, en elk jaar poetsen wij hem gratis.</dd><dt>Kop</dt><dd>€ 2 per keer dragen</dd><dt>Beschrijving</dt><dd>Nu 25% korting</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#jezelf</code></dd></dl>
-<div class="dl"><a href="media/ad08-f.jpg" download>Feed downloaden</a><a href="media/ad08-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 9</b><span>Statisch · review</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad09-f.jpg" alt="Ad 9 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad09-s.jpg" alt="Ad 9 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>&quot;Voor mijn 50e voor mezelf gekocht. Beste aankoop van het jaar.&quot; Annemiek over de Amara Mozaïek Set Amethist.</dd><dt>Kop</dt><dd>&quot;Beste aankoop van het jaar&quot;</dd><dt>Beschrijving</dt><dd>4,9 ★ · 418 reviews</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#reviews</code></dd></dl>
-<div class="dl"><a href="media/ad09-f.jpg" download>Feed downloaden</a><a href="media/ad09-s.jpg" download>Story downloaden</a></div></article></div></section><section class="av" id="steen"><div class="avh"><h2>Avatar 3 · Liefhebber van stenen <small>4 ads</small></h2>
-<div class="meta"><p><b>Wie</b>Vrouw, 30-65, houdt van edelstenen en kristallen en draagt ze bewust.</p><p><b>Bezwaar</b>"Is het wel echte amethist?"</p><p><b>Belofte</b>Echte amethist met certificaat, elke steen anders geslepen, 925 zilver.</p><p><b>Targeting</b>Vrouwen 30-65 NL+BE · interesses: edelstenen, kristallen, mineralen, astrologie, yoga</p></div></div>
-<div class="grid"><article class="ad"><header><b>Ad 10</b><span>Video-loop</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad10-f.mp4" poster="media/ad10-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad10-s.mp4" poster="media/ad10-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>Echte amethist, en geen twee stenen hetzelfde. Elke steen van de Amara Mozaïek Set Amethist wordt los geslepen en met de hand in 925 zilver gezet. Met certificaat.</dd><dt>Kop</dt><dd>Elke steen een eigen vorm</dd><dt>Beschrijving</dt><dd>Met echtheidscertificaat · -25%</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#steen</code></dd></dl>
-<div class="dl"><a href="media/ad10-f.mp4" download>Feed downloaden</a><a href="media/ad10-s.mp4" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 11</b><span>Statisch · labels</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad11-f.jpg" alt="Ad 11 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad11-s.jpg" alt="Ad 11 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Kijk eens goed: natuurlijke amethist, facetgeslepen in onregelmatige vormen, gezet in massief 925 sterling zilver. Zo vangt elke steen het licht anders.</dd><dt>Kop</dt><dd>Natuurlijke amethist, met de hand gezet</dd><dt>Beschrijving</dt><dd>Certificaat erbij · -25%</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#steen</code></dd></dl>
-<div class="dl"><a href="media/ad11-f.jpg" download>Feed downloaden</a><a href="media/ad11-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 12</b><span>Statisch · sfeer</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad12-f.jpg" alt="Ad 12 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad12-s.jpg" alt="Ad 12 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Amethist is de geboortesteen van februari, en van oudsher de steen van rust en balans. De Amara Mozaïek Set Amethist: collier en oorbellen, elke steen uniek.</dd><dt>Kop</dt><dd>De geboortesteen van februari</dd><dt>Beschrijving</dt><dd>Echte amethist · 925 zilver</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#steen</code></dd></dl>
-<div class="dl"><a href="media/ad12-f.jpg" download>Feed downloaden</a><a href="media/ad12-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 13</b><span>Statisch · us vs. them</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad13-f.jpg" alt="Ad 13 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad13-s.jpg" alt="Ad 13 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Paars is niet altijd amethist. Links: kunststof kralen aan verzilverd metaal. Rechts: de Amara Mozaïek Set Amethist, echte steen in massief zilver.</dd><dt>Kop</dt><dd>Zie je het verschil?</dd><dt>Beschrijving</dt><dd>Echte amethist · -25%</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#vergelijk</code></dd></dl>
-<div class="dl"><a href="media/ad13-f.jpg" download>Feed downloaden</a><a href="media/ad13-s.jpg" download>Story downloaden</a></div></article></div></section><section class="av" id="moeder"><div class="avh"><h2>Avatar 6 · Cadeau voor moeder <small>3 ads</small></h2>
-<div class="meta"><p><b>Wie</b>Dochter, 25-45, zoekt een cadeau voor haar moeder (60e/65e verjaardag, Moederdag, kerst).</p><p><b>Bezwaar</b>"Haar smaak raden is lastig."</p><p><b>Belofte</b>Zacht lila en zilver passen bij bijna alles; ingepakt, met kaartje, ruilen kan.</p><p><b>Targeting</b>Vrouwen 25-45 NL+BE · interesses: cadeaus, familie · ouders met verjaardag binnen 30 dagen</p></div></div>
-<div class="grid"><article class="ad"><header><b>Ad 14</b><span>Statisch · band</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad14-f.jpg" alt="Ad 14 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad14-s.jpg" alt="Ad 14 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Voor mama, die alles al heeft. Geef haar iets wat ze écht draagt: de Amara Mozaïek Set Amethist, ingepakt in een fluwelen doos met jouw kaartje.</dd><dt>Kop</dt><dd>Iets wat ze écht draagt</dd><dt>Beschrijving</dt><dd>Ruilen kan · -25%</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#cadeau</code></dd></dl>
-<div class="dl"><a href="media/ad14-f.jpg" download>Feed downloaden</a><a href="media/ad14-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 15</b><span>Video-loop</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad15-f.mp4" poster="media/ad15-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad15-s.mp4" poster="media/ad15-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>Haar smaak raden? Zacht lila en zilver passen bij bijna alles wat ze draagt. En past het toch niet, dan ruilt ze hem binnen 60 dagen.</dd><dt>Kop</dt><dd>Cadeau voor je moeder</dd><dt>Beschrijving</dt><dd>Ingepakt met kaartje · -25%</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#cadeau</code></dd></dl>
-<div class="dl"><a href="media/ad15-f.mp4" download>Feed downloaden</a><a href="media/ad15-s.mp4" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 16</b><span>Statisch · review</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad16-f.jpg" alt="Ad 16 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad16-s.jpg" alt="Ad 16 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>&quot;Voor de 65e van mijn moeder. Ze draagt hem bij elk etentje.&quot; Lotte over de Amara Mozaïek Set Amethist.</dd><dt>Kop</dt><dd>&quot;Ze draagt hem bij elk etentje&quot;</dd><dt>Beschrijving</dt><dd>4,9 ★ · 418 reviews</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#reviews</code></dd></dl>
-<div class="dl"><a href="media/ad16-f.jpg" download>Feed downloaden</a><a href="media/ad16-s.jpg" download>Story downloaden</a></div></article></div></section><section class="av" id="alle"><div class="avh"><h2>Alle avatars · Retargeting <small>4 ads</small></h2>
-<div class="meta"><p><b>Wie</b>Bezoekers salespagina 30 dagen, video-kijkers 50%, winkelmand zonder aankoop 14 dagen.</p><p><b>Bezwaar</b>"Nog even twijfelen."</p><p><b>Belofte</b>Reviews, alles-erbij-stack, Duo-upsell en vergelijking.</p><p><b>Targeting</b>Custom audiences, uitsluiten: kopers 180 dagen</p></div></div>
-<div class="grid"><article class="ad"><header><b>Ad 17</b><span>Statisch · reviews</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad17-f.jpg" alt="Ad 17 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad17-s.jpg" alt="Ad 17 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>4,9 uit 418 reviews: &quot;Nog mooier dan op de foto.&quot; De Amara Mozaïek Set Amethist, nu met 25% korting en een gratis geschenkdoos.</dd><dt>Kop</dt><dd>4,9 ★ uit 418 reviews</dd><dt>Beschrijving</dt><dd>Nu 25% korting</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#reviews</code></dd></dl>
-<div class="dl"><a href="media/ad17-f.jpg" download>Feed downloaden</a><a href="media/ad17-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 18</b><span>Statisch · deal-stack</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad18-f.jpg" alt="Ad 18 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad18-s.jpg" alt="Ad 18 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Alles erbij: collier, oorbellen, fluwelen geschenkdoos met kaartje, zilverpoetsdoekje, certificaat én elk jaar een gratis poetsbeurt. Samen t.w.v. € 348,90, nu 25% korting.</dd><dt>Kop</dt><dd>Alles erbij, nu -25%</dd><dt>Beschrijving</dt><dd>Gratis verzending · 3× zonder rente</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#koop</code></dd></dl>
-<div class="dl"><a href="media/ad18-f.jpg" download>Feed downloaden</a><a href="media/ad18-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 19</b><span>Statisch · upsell</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad19-f.jpg" alt="Ad 19 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad19-s.jpg" alt="Ad 19 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Maak hem compleet: de Duo met de bijpassende Mozaïek armband. De amethist oorknopjes krijg je er gratis bij.</dd><dt>Kop</dt><dd>Duo: set + armband</dd><dt>Beschrijving</dt><dd>Oorknopjes gratis · -29%</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>#koop</code></dd></dl>
-<div class="dl"><a href="media/ad19-f.jpg" download>Feed downloaden</a><a href="media/ad19-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 20</b><span>Statisch · tabel</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad20-f.jpg" alt="Ad 20 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad20-s.jpg" alt="Ad 20 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Winkelstraat-bijoux of Amara? Glas tegenover echte amethist, verzilverd tegenover 925 zilver, plastic zakje tegenover een fluwelen doos.</dd><dt>Kop</dt><dd>Winkelstraat vs. Amara</dd><dt>Beschrijving</dt><dd>Echte amethist · -25%</dd>
-<dt>Knop · landing</dt><dd>Meer informatie · <code>#vergelijk</code></dd></dl>
-<div class="dl"><a href="media/ad20-f.jpg" download>Feed downloaden</a><a href="media/ad20-s.jpg" download>Story downloaden</a></div></article></div></section><section class="av" id="bf"><div class="avh"><h2>Black Friday · 27 t/m 30 november <small>4 ads</small></h2>
-<div class="meta"><p><b>Wie</b>Alle 4 avatars + retargeting, aparte campagne met eigen budget (3-4× normaal dagbudget).</p><p><b>Bezwaar</b>"Ik wacht op een deal."</p><p><b>Belofte</b>-35% op de set, geschenkdoos gratis, nog 38 sets, t/m ma 30 nov 23:59.</p><p><b>Targeting</b>Breed NL+BE 25-65 + warme doelgroepen, landingspagina /black-friday</p></div></div>
-<div class="grid"><article class="ad"><header><b>Ad 21</b><span>Scroll-stopper</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad21-f.mp4" poster="media/ad21-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad21-s.mp4" poster="media/ad21-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>BLACK FRIDAY: -35% op de Amara Mozaïek Set Amethist. Geschenkdoos gratis, nog 38 sets in deze actie. Alleen t/m maandag 30 november.</dd><dt>Kop</dt><dd>-35% op de Mozaïek Set</dd><dt>Beschrijving</dt><dd>Nog 38 sets · t/m ma 30 nov</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>black-friday#koop</code></dd></dl>
-<div class="dl"><a href="media/ad21-f.mp4" download>Feed downloaden</a><a href="media/ad21-s.mp4" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 22</b><span>Statisch · BF</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad22-f.jpg" alt="Ad 22 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad22-s.jpg" alt="Ad 22 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Black Friday bij Amara: de Mozaïek Set Amethist met 35% korting, van vrijdag 27 t/m maandag 30 november. Op = op, elke set is uniek.</dd><dt>Kop</dt><dd>Black Friday: -35%</dd><dt>Beschrijving</dt><dd>Geschenkdoos gratis</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>black-friday#koop</code></dd></dl>
-<div class="dl"><a href="media/ad22-f.jpg" download>Feed downloaden</a><a href="media/ad22-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 23</b><span>Statisch · BF-stack</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><img src="media/ad23-f.jpg" alt="Ad 23 f" loading="lazy"></div><div class="frame s" hidden><img src="media/ad23-s.jpg" alt="Ad 23 s" loading="lazy"></div>
-<dl><dt>Primaire tekst</dt><dd>Black Friday-set: collier + oorbellen -35%, geschenkdoos en poetsdoekje gratis, 60 dagen ruilen. Nog 38 sets.</dd><dt>Kop</dt><dd>Nog 38 sets voor -35%</dd><dt>Beschrijving</dt><dd>t/m maandag 30 nov</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>black-friday#koop</code></dd></dl>
-<div class="dl"><a href="media/ad23-f.jpg" download>Feed downloaden</a><a href="media/ad23-s.jpg" download>Story downloaden</a></div></article><article class="ad"><header><b>Ad 24</b><span>Video-loop · BF</span></header>
-<div class="tabs"><button aria-pressed="true" data-f="f">Feed 4:5</button><button aria-pressed="false" data-f="s">Story 9:16</button></div>
-<div class="frame f"><video data-src="media/ad24-f.mp4" poster="media/ad24-f.jpg" muted loop playsinline></video></div><div class="frame s" hidden><video data-src="media/ad24-s.mp4" poster="media/ad24-s.jpg" muted loop playsinline></video></div>
-<dl><dt>Primaire tekst</dt><dd>Nog 38 sets voor -35%. Echte amethist in 925 sterling zilver, gratis geschenkdoos. Black Friday loopt t/m maandag 30 november, 23:59.</dd><dt>Kop</dt><dd>Laatste sets voor -35%</dd><dt>Beschrijving</dt><dd>Black Friday bij Amara</dd>
-<dt>Knop · landing</dt><dd>Nu kopen · <code>black-friday#koop</code></dd></dl>
-<div class="dl"><a href="media/ad24-f.mp4" download>Feed downloaden</a><a href="media/ad24-s.mp4" download>Story downloaden</a></div></article></div></section>
+<header class="gutter"><div class="wrap"><div class="logo">AMARA</div>
+<h1>Meta-advertenties Amara Mozaïek Set Amethist · per avatar</h1>
+<p>Gebouwd vanuit de salespagina: dezelfde beelden, video's, deal-stack en vergelijking. Elk blok is één advertentieset in Meta, met de doelgroep, het bezwaar en de belofte erboven. Elke ad heeft een feedversie (4:5) en een versie voor Stories en Reels (9:16), en landt op het passende anker van de salespagina.</p>
+<div class="wat"><span>24 ads</span><span>7 video-ads (8-10 s), waarvan 2 scroll-stoppers</span><span>17 statische ads</span><span>Feed 1080×1350</span><span>Stories 1080×1920</span><span>Inclusief Black Friday-set</span></div>
+</div></header>
+<div class="schakel gutter"><div class="wrap">
+<button id="b-feed" aria-pressed="true">Feed (4:5)</button><button id="b-story" aria-pressed="false">Stories en Reels (9:16)</button>
+<nav><a href="#cadeau">Het cadeau voor haar</a><a href="#jezelf">Zichzelf trakteren</a><a href="#steen">Liefhebber van stenen</a><a href="#moeder">Cadeau voor moeder</a><a href="#alle">Retargeting</a><a href="#bf">Black Friday</a></nav></div></div>
+<section class="gutter" id="cadeau"><div class="wrap"><h2>Avatar 1 · Het cadeau voor haar</h2>
+<p class="uitleg">Man, 35-60, zoekt een cadeau voor vrouw of vriendin (verjaardag, jubileum, Sinterklaas, kerst). Bezwaar: "Ik weet niks van sieraden, straks vindt ze het niks." Belofte: Kant-en-klaar in een doos met kaartje, 60 dagen ruilen (decembercadeaus tot 31 jan).<br><small>Targeting: Mannen 35-65 NL+BE · interesses: sieraden, cadeaus, huwelijk/jubileum · life event: verjaardag partner binnen 30 dagen</small></p>
+<div class="grid"><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Ze gaat hem dragen, niet in een la leggen. De Amara Mozaïek Set Amethist: collier en oorbellen met echte amethist in 925 sterling zilver. Kant-en-klaar ingepakt, nu 25% korting.</p>
+ <div class="media"><video class="f" src="media/ad01-f.mp4" poster="media/ad01-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad01-s.mp4" poster="media/ad01-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 8 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Het cadeau dat ze écht draagt</b><span>Gratis geschenkdoos · 60 dagen ruilen</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 1</b> · Scroll-stopper · landt op salespagina #cadeau</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Geen idee wat je haar moet geven? De Amara Mozaïek Set Amethist komt in een fluwelen doos, met jouw tekst met de hand op een kaartje. Past het toch niet? Ze ruilt hem tot 31 januari.</p>
+ <div class="media"><video class="f" src="media/ad02-f.mp4" poster="media/ad02-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad02-s.mp4" poster="media/ad02-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 10 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Kant-en-klaar ingepakt, -25%</b><span>Echte amethist · 925 zilver</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 2</b> · Video-loop · landt op salespagina #cadeau</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Weet je niet wat je haar moet geven? Collier + oorbellen met echte amethist, ingepakt in een fluwelen doos, kaartje erbij. Jij hoeft alleen nog te geven.</p>
+ <div class="media"><img class="f" src="media/ad03-f.jpg" alt="Ad 3" loading="lazy"><img class="s" src="media/ad03-s.jpg" alt="Ad 3" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Het cadeau is al ingepakt</b><span>Nu 25% korting · gratis verzending</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 3</b> · Statisch · band · landt op salespagina #cadeau</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Alles zit erin: de Amara Mozaïek Set Amethist, een fluwelen geschenkdoos en een handgeschreven kaartje met jouw tekst. Voor 22:00 besteld, morgen in huis.</p>
+ <div class="media"><img class="f" src="media/ad04-f.jpg" alt="Ad 4" loading="lazy"><img class="s" src="media/ad04-s.jpg" alt="Ad 4" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Bestel op tijd voor de feestdagen</b><span>Collier + oorbellen · -25%</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 4</b> · Statisch · labels · landt op salespagina #cadeau</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">&quot;Mijn vrouw had hem op tweede kerstdag al om.&quot; Marco wist niets van sieraden en koos de Amara Mozaïek Set Amethist. 4,9 uit 418 reviews.</p>
+ <div class="media"><img class="f" src="media/ad05-f.jpg" alt="Ad 5" loading="lazy"><img class="s" src="media/ad05-s.jpg" alt="Ad 5" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>&quot;Ik was bang dat ik verkeerd zou kiezen&quot;</b><span>4,9 ★ · 418 reviews</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 5</b> · Statisch · review · landt op salespagina #reviews</p></article></div></div></section><section class="gutter" id="jezelf"><div class="wrap"><h2>Avatar 2 · Zichzelf trakteren</h2>
+<p class="uitleg">Vrouw, 40-60, kinderen de deur uit, meer tijd en budget voor zichzelf. Bezwaar: "Duur voor iets voor mezelf." Belofte: Een set die je jaren draagt bij zwart, grijs en spijkerbroek: € 2 per keer dragen.<br><small>Targeting: Vrouwen 40-62 NL+BE · interesses: mode, sieraden, Rituals, wellness · Advantage+ aan</small></p>
+<div class="grid"><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Je hebt jaren voor iedereen gezorgd. Deze is voor jou: de Amara Mozaïek Set Amethist, echte amethist in 925 sterling zilver. Nu 25% korting.</p>
+ <div class="media"><video class="f" src="media/ad06-f.mp4" poster="media/ad06-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad06-s.mp4" poster="media/ad06-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 10 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Voor jezelf. Omdat het mag.</b><span>Collier + oorbellen · -25%</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 6</b> · Video-loop · landt op salespagina #jezelf</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Bij een zwarte jurk, een grijze trui of gewoon je spijkerbroek. De Amara Mozaïek Set Amethist draag je niet één keer, maar honderd keer.</p>
+ <div class="media"><img class="f" src="media/ad07-f.jpg" alt="Ad 7" loading="lazy"><img class="s" src="media/ad07-s.jpg" alt="Ad 7" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Eén set, honderd keer dragen</b><span>Echte amethist · nikkelvrij</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 7</b> · Statisch · flatlay · landt op salespagina #jezelf</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Twee keer per maand, vijf jaar lang: dan kost de Amara Mozaïek Set Amethist je € 2 per keer dragen. Massief zilver, en elk jaar poetsen wij hem gratis.</p>
+ <div class="media"><img class="f" src="media/ad08-f.jpg" alt="Ad 8" loading="lazy"><img class="s" src="media/ad08-s.jpg" alt="Ad 8" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>€ 2 per keer dragen</b><span>Nu 25% korting</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 8</b> · Statisch · band · landt op salespagina #jezelf</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">&quot;Voor mijn 50e voor mezelf gekocht. Beste aankoop van het jaar.&quot; Annemiek over de Amara Mozaïek Set Amethist.</p>
+ <div class="media"><img class="f" src="media/ad09-f.jpg" alt="Ad 9" loading="lazy"><img class="s" src="media/ad09-s.jpg" alt="Ad 9" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>&quot;Beste aankoop van het jaar&quot;</b><span>4,9 ★ · 418 reviews</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 9</b> · Statisch · review · landt op salespagina #reviews</p></article></div></div></section><section class="gutter" id="steen"><div class="wrap"><h2>Avatar 3 · Liefhebber van stenen</h2>
+<p class="uitleg">Vrouw, 30-65, houdt van edelstenen en kristallen en draagt ze bewust. Bezwaar: "Is het wel echte amethist?" Belofte: Echte amethist met certificaat, elke steen anders geslepen, 925 zilver.<br><small>Targeting: Vrouwen 30-65 NL+BE · interesses: edelstenen, kristallen, mineralen, astrologie, yoga</small></p>
+<div class="grid"><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Echte amethist, en geen twee stenen hetzelfde. Elke steen van de Amara Mozaïek Set Amethist wordt los geslepen en met de hand in 925 zilver gezet. Met certificaat.</p>
+ <div class="media"><video class="f" src="media/ad10-f.mp4" poster="media/ad10-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad10-s.mp4" poster="media/ad10-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 10 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Elke steen een eigen vorm</b><span>Met echtheidscertificaat · -25%</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 10</b> · Video-loop · landt op salespagina #steen</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Kijk eens goed: natuurlijke amethist, facetgeslepen in onregelmatige vormen, gezet in massief 925 sterling zilver. Zo vangt elke steen het licht anders.</p>
+ <div class="media"><img class="f" src="media/ad11-f.jpg" alt="Ad 11" loading="lazy"><img class="s" src="media/ad11-s.jpg" alt="Ad 11" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Natuurlijke amethist, met de hand gezet</b><span>Certificaat erbij · -25%</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 11</b> · Statisch · labels · landt op salespagina #steen</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Amethist is de geboortesteen van februari, en van oudsher de steen van rust en balans. De Amara Mozaïek Set Amethist: collier en oorbellen, elke steen uniek.</p>
+ <div class="media"><img class="f" src="media/ad12-f.jpg" alt="Ad 12" loading="lazy"><img class="s" src="media/ad12-s.jpg" alt="Ad 12" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>De geboortesteen van februari</b><span>Echte amethist · 925 zilver</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 12</b> · Statisch · sfeer · landt op salespagina #steen</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Paars is niet altijd amethist. Links: kunststof kralen aan verzilverd metaal. Rechts: de Amara Mozaïek Set Amethist, echte steen in massief zilver.</p>
+ <div class="media"><img class="f" src="media/ad13-f.jpg" alt="Ad 13" loading="lazy"><img class="s" src="media/ad13-s.jpg" alt="Ad 13" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Zie je het verschil?</b><span>Echte amethist · -25%</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 13</b> · Statisch · us vs. them · landt op salespagina #vergelijk</p></article></div></div></section><section class="gutter" id="moeder"><div class="wrap"><h2>Avatar 6 · Cadeau voor moeder</h2>
+<p class="uitleg">Dochter, 25-45, zoekt een cadeau voor haar moeder (60e/65e verjaardag, Moederdag, kerst). Bezwaar: "Haar smaak raden is lastig." Belofte: Zacht lila en zilver passen bij bijna alles; ingepakt, met kaartje, ruilen kan.<br><small>Targeting: Vrouwen 25-45 NL+BE · interesses: cadeaus, familie · ouders met verjaardag binnen 30 dagen</small></p>
+<div class="grid"><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Voor mama, die alles al heeft. Geef haar iets wat ze écht draagt: de Amara Mozaïek Set Amethist, ingepakt in een fluwelen doos met jouw kaartje.</p>
+ <div class="media"><img class="f" src="media/ad14-f.jpg" alt="Ad 14" loading="lazy"><img class="s" src="media/ad14-s.jpg" alt="Ad 14" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Iets wat ze écht draagt</b><span>Ruilen kan · -25%</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 14</b> · Statisch · band · landt op salespagina #cadeau</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Haar smaak raden? Zacht lila en zilver passen bij bijna alles wat ze draagt. En past het toch niet, dan ruilt ze hem binnen 60 dagen.</p>
+ <div class="media"><video class="f" src="media/ad15-f.mp4" poster="media/ad15-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad15-s.mp4" poster="media/ad15-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 10 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Cadeau voor je moeder</b><span>Ingepakt met kaartje · -25%</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 15</b> · Video-loop · landt op salespagina #cadeau</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">&quot;Voor de 65e van mijn moeder. Ze draagt hem bij elk etentje.&quot; Lotte over de Amara Mozaïek Set Amethist.</p>
+ <div class="media"><img class="f" src="media/ad16-f.jpg" alt="Ad 16" loading="lazy"><img class="s" src="media/ad16-s.jpg" alt="Ad 16" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>&quot;Ze draagt hem bij elk etentje&quot;</b><span>4,9 ★ · 418 reviews</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 16</b> · Statisch · review · landt op salespagina #reviews</p></article></div></div></section><section class="gutter" id="alle"><div class="wrap"><h2>Alle avatars · Retargeting</h2>
+<p class="uitleg">Bezoekers salespagina 30 dagen, video-kijkers 50%, winkelmand zonder aankoop 14 dagen. Bezwaar: "Nog even twijfelen." Belofte: Reviews, alles-erbij-stack, Duo-upsell en vergelijking.<br><small>Targeting: Custom audiences, uitsluiten: kopers 180 dagen</small></p>
+<div class="grid"><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">4,9 uit 418 reviews: &quot;Nog mooier dan op de foto.&quot; De Amara Mozaïek Set Amethist, nu met 25% korting en een gratis geschenkdoos.</p>
+ <div class="media"><img class="f" src="media/ad17-f.jpg" alt="Ad 17" loading="lazy"><img class="s" src="media/ad17-s.jpg" alt="Ad 17" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>4,9 ★ uit 418 reviews</b><span>Nu 25% korting</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 17</b> · Statisch · reviews · landt op salespagina #reviews</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Alles erbij: collier, oorbellen, fluwelen geschenkdoos met kaartje, zilverpoetsdoekje, certificaat én elk jaar een gratis poetsbeurt. Samen t.w.v. € 348,90, nu 25% korting.</p>
+ <div class="media"><img class="f" src="media/ad18-f.jpg" alt="Ad 18" loading="lazy"><img class="s" src="media/ad18-s.jpg" alt="Ad 18" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Alles erbij, nu -25%</b><span>Gratis verzending · 3× zonder rente</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 18</b> · Statisch · deal-stack · landt op salespagina #koop</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Maak hem compleet: de Duo met de bijpassende Mozaïek armband. De amethist oorknopjes krijg je er gratis bij.</p>
+ <div class="media"><img class="f" src="media/ad19-f.jpg" alt="Ad 19" loading="lazy"><img class="s" src="media/ad19-s.jpg" alt="Ad 19" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Duo: set + armband</b><span>Oorknopjes gratis · -29%</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 19</b> · Statisch · upsell · landt op salespagina #koop</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Winkelstraat-bijoux of Amara? Glas tegenover echte amethist, verzilverd tegenover 925 zilver, plastic zakje tegenover een fluwelen doos.</p>
+ <div class="media"><img class="f" src="media/ad20-f.jpg" alt="Ad 20" loading="lazy"><img class="s" src="media/ad20-s.jpg" alt="Ad 20" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Winkelstraat vs. Amara</b><span>Echte amethist · -25%</span></div><a>Meer informatie</a></div>
+</div><p class="meta"><b>Ad 20</b> · Statisch · tabel · landt op salespagina #vergelijk</p></article></div></div></section><section class="gutter" id="bf"><div class="wrap"><h2>Black Friday · 27 t/m 30 november</h2>
+<p class="uitleg">Alle 4 avatars + retargeting, aparte campagne met eigen budget (3-4× normaal dagbudget). Bezwaar: "Ik wacht op een deal." Belofte: -35% op de set, geschenkdoos gratis, nog 38 sets, t/m ma 30 nov 23:59.<br><small>Targeting: Breed NL+BE 25-65 + warme doelgroepen, landingspagina /black-friday</small></p>
+<div class="grid"><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">BLACK FRIDAY: -35% op de Amara Mozaïek Set Amethist. Geschenkdoos gratis, nog 38 sets in deze actie. Alleen t/m maandag 30 november.</p>
+ <div class="media"><video class="f" src="media/ad21-f.mp4" poster="media/ad21-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad21-s.mp4" poster="media/ad21-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 8 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>-35% op de Mozaïek Set</b><span>Nog 38 sets · t/m ma 30 nov</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 21</b> · Scroll-stopper · landt op Black Friday-pagina #koop</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Black Friday bij Amara: de Mozaïek Set Amethist met 35% korting, van vrijdag 27 t/m maandag 30 november. Op = op, elke set is uniek.</p>
+ <div class="media"><img class="f" src="media/ad22-f.jpg" alt="Ad 22" loading="lazy"><img class="s" src="media/ad22-s.jpg" alt="Ad 22" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Black Friday: -35%</b><span>Geschenkdoos gratis</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 22</b> · Statisch · BF · landt op Black Friday-pagina #koop</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Black Friday-set: collier + oorbellen -35%, geschenkdoos en poetsdoekje gratis, 60 dagen ruilen. Nog 38 sets.</p>
+ <div class="media"><img class="f" src="media/ad23-f.jpg" alt="Ad 23" loading="lazy"><img class="s" src="media/ad23-s.jpg" alt="Ad 23" loading="lazy"></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Nog 38 sets voor -35%</b><span>t/m maandag 30 nov</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 23</b> · Statisch · BF-stack · landt op Black Friday-pagina #koop</p></article><article class="ad"><div class="post">
+ <div class="kp"><span class="av">A</span><div><b>Amara Sieraden</b><span>Gesponsord</span></div></div>
+ <p class="prim">Nog 38 sets voor -35%. Echte amethist in 925 sterling zilver, gratis geschenkdoos. Black Friday loopt t/m maandag 30 november, 23:59.</p>
+ <div class="media"><video class="f" src="media/ad24-f.mp4" poster="media/ad24-f.jpg" muted loop playsinline preload="none"></video><video class="s" src="media/ad24-s.mp4" poster="media/ad24-s.jpg" muted loop playsinline preload="none"></video><span class="vtag">▶ Video 10 s</span></div>
+ <div class="cta"><div><small>AMARA-SIERADEN.NL</small><b>Laatste sets voor -35%</b><span>Black Friday bij Amara</span></div><a>Nu kopen</a></div>
+</div><p class="meta"><b>Ad 24</b> · Video-loop · BF · landt op Black Friday-pagina #koop</p></article></div></div></section>
+<footer class="gutter"><div class="wrap">Demo van Create &amp; Convert. Merk, prijzen en reviews zijn voorbeelden. Alle beelden en video's zijn eigen AI-beelden (Higgsfield) op basis van de productfoto. Geen helende of beschermende claims over amethist gebruikt.</div></footer>
 <script>
-document.querySelectorAll('.ad').forEach(a=>a.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
-  a.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  a.querySelector('.frame.f').hidden=b.dataset.f!=='f';a.querySelector('.frame.s').hidden=b.dataset.f!=='s';
-  a.querySelectorAll('video').forEach(v=>{v.pause();vo.unobserve(v);vo.observe(v)});
-}));
-const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting&&v.offsetParent){if(!v.src)v.src=v.dataset.src;v.play().catch(()=>{})}else v.pause()}),{threshold:.4});
-document.querySelectorAll('video[data-src]').forEach(v=>vo.observe(v));
+var bf=document.getElementById('b-feed'),bs=document.getElementById('b-story');
+function zet(st){document.body.classList.toggle('story',st);bf.setAttribute('aria-pressed',!st);bs.setAttribute('aria-pressed',st);document.querySelectorAll('video').forEach(function(v){v.pause();io.unobserve(v);io.observe(v);});}
+bf.onclick=function(){zet(false)};bs.onclick=function(){zet(true)};
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+if(!location.hash)window.scrollTo(0,0);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting&&v.offsetParent){v.play().catch(function(){});}else{v.pause();}});},{rootMargin:'100px'});
+document.querySelectorAll('video').forEach(function(v){io.observe(v);});
 </script></body></html>
